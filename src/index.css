@@ -26,6 +26,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 /* ==========================================================================
    GLOBAL MOBILE RESPONSIVE STYLES (Breaks at 768px for tablets and phones)
    ========================================================================== */
@@ -79,7 +80,7 @@ a {
 
   /* 3. Homepage Layout Structures */
   [class*="homeContainer"] {
-    padding: 20px 12px !important; /* Reduces large side gaps on mobile screens */
+    padding: 20px 12px !important; 
     width: 100% !important;
     max-width: 100vw !important;
     box-sizing: border-box !important;
@@ -96,7 +97,7 @@ a {
   }
 
   [class*="mainLayout"] {
-   grid-template-columns: 1fr !important; 
+    grid-template-columns: 1fr !important; 
     gap: 15px !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -140,7 +141,7 @@ a {
     border-radius: 20px !important; 
   }
 
-  /*  Product Grid */
+  /* 5. Product Grid Matrix Layout */
   [class*="productGrid"] {
     display: grid !important;
     /* Forces exactly 2 equal columns without extending past the screen boundary */
@@ -159,6 +160,10 @@ a {
     box-sizing: border-box !important;
     background-color: var(--white);
     border: 1px solid var(--border-color);
+    
+    /* MAINTAINS EQUAL HEIGHTS: Keeps the flex values active on mobile viewports */
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   [class*="imageContainer"] img {
@@ -169,7 +174,7 @@ a {
 
   [class*="title"] {
     font-size: 13px !important;
-    height: 38px !important;
+    min-height: 38px !important; /* Changed from strict height to allow dynamic alignment scaling */
     line-height: 1.3 !important;
   }
 
@@ -179,15 +184,16 @@ a {
 
   [class*="oldPrice"] {
     font-size: 11px !important;
-    display: block !important;
+    display: block !important; 
     margin-left: 0 !important;
   }
 
   [class*="addToCartBtn"] {
     padding: 8px !important;
     font-size: 12px !important;
+    margin-top: auto !important; /* Anchors button base to card floor on responsive scaling */
   }
-} /* <--- This single bracket safely closes the main 768px query block down here now! */
+}
 
 /* 7. Extra Rule for small screen layout drops */
 @media (max-width: 420px) {
