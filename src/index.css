@@ -35,10 +35,12 @@ a {
   /* 1. Global Reset Tweaks */
   body {
     font-size: 14px;
+    overflow-x: hidden; /* Strongly prevents accidental sideways shaking or scrolling */
   }
 
-  /* 2. Navbar Responsiveness (FIXED) */
+  /* 2. Navbar Responsiveness */
   [class*="topBar"] {
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     gap: 5px;
@@ -46,24 +48,25 @@ a {
   }
 
   [class*="mainNav"] {
+    display: flex !important;
     flex-direction: column;
     gap: 15px;
-    padding: 15px 16px !important; /* Fixed padding room on mobile screen edges */
-    align-items: stretch !important; /* Forces children to stay bounded symmetrically */
+    padding: 15px 16px !important; 
+    align-items: stretch !important; 
   }
 
   [class*="searchBar"] {
     width: 100% !important;
     max-width: 100% !important;
-    display: flex !important; /* Keeps input and button explicitly row-aligned inline */
-    order: 3; /* Places search input cleanly below logo/cart on mobile */
+    display: flex !important; 
+    order: 3; 
     flex: unset;
-    box-sizing: border-box !important; /* Forces browser to calculate width inclusive of padding/borders */
+    box-sizing: border-box !important; 
   }
 
   [class*="searchBar"] input {
-    width: 100% !important; /* Instructs input to fill the remaining wrapper container */
-    font-size: 16px !important; /* CRITICAL: Prevents iOS Safari/Chrome from forced auto-zooming on focus */
+    width: 100% !important; 
+    font-size: 16px !important; 
   }
 
   [class*="navActions"] {
@@ -74,9 +77,10 @@ a {
     order: 2;
   }
 
-  /* 3. Homepage Container & Banner */
+  /* 3. Homepage Layout Structures */
   [class*="homeContainer"] {
-    padding: 15px 4% !important; 
+    padding: 15px 12px !important; 
+    box-sizing: border-box !important;
   }
 
   [class*="heroBanner"] {
@@ -89,28 +93,76 @@ a {
     font-size: 24px !important;
   }
 
-  /* 4. Nairobi Computer Shop Style 2-Column Product Grid */
+  [class*="mainLayout"] {
+    grid-template-columns: 1fr !important; /* Forces sidebar on top, shop on bottom */
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  /* 4. Horizontal Scrolling Filter Category Pill System */
+  [class*="sidebar"] {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  [class*="sidebar"] h3 {
+    display: none !important; 
+  }
+
+  [class*="sidebar"] ul {
+    display: flex !important;
+    gap: 10px !important;
+    overflow-x: auto !important; /* Enables horizontal swipe scrolling */
+    padding-bottom: 12px !important;
+    margin: 0 !important;
+    list-style: none !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  [class*="sidebar"] li {
+    margin-bottom: 0 !important;
+    display: inline-block !important;
+  }
+
+  [class*="sidebar"] button {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    background-color: var(--white);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 20px !important; 
+  }
+
+  /* 5. Nairobi Computer Shop Style 2-Column Product Grid */
   [class*="productGrid"] {
     grid-template-columns: repeat(2, 1fr) !important; 
     gap: 12px !important;
+    width: 100% !important;
   }
 
-  /* 5. Product Cards Adjustment */
+  /* 6. Product Cards Adjustment */
   [class*="card"] {
     padding: 10px !important;
+    box-sizing: border-box !important;
   }
 
   [class*="imageContainer"] img {
-    height: 130px !important;
+    height: 120px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
   }
 
   [class*="title"] {
     font-size: 13px !important;
-    height: 36px !important;
+    height: 38px !important;
+    line-height: 1.3 !important;
   }
 
   [class*="price"] {
-    font-size: 15px !important;
+    font-size: 14px !important;
   }
 
   [class*="oldPrice"] {
@@ -123,59 +175,11 @@ a {
     padding: 8px !important;
     font-size: 12px !important;
   }
-}
+} /* <--- This single bracket safely closes the main 768px query block down here now! */
 
-/* 6. Extra Rule for extremely small smartphones */
-@media (max-width: 400px) {
+/* 7. Extra Rule for small screen layout drops */
+@media (max-width: 420px) {
   [class*="productGrid"] {
-    grid-template-columns: 1fr !important; 
+    grid-template-columns: 1fr !important; /* Drops to a single wide list column if viewport is under 420px */
   }
 }
-/* ... keeping your existing mobile media rules ... */
-
-  /* Reshaping Main Sidebar Structure for Small Screens */
-  [class*="mainLayout"] {
-    grid-template-columns: 1fr !important; /* Collapses layout to a single column block */
-    gap: 20px !important;
-  }
-
-  /* Transform vertical sidebar list into a horizontal scrolling row list */
-  [class*="sidebar"] {
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-  }
-
-  [class*="sidebar"] h3 {
-    display: none !important; /* Hides "Categories" text header on mobile */
-  }
-
-  [class*="sidebar"] ul {
-    display: flex !important;
-    gap: 10px;
-    overflow-x: auto; /* Activates horizontal touch swipe */
-    padding-bottom: 10px;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Custom scrollbar handling for elegant mobile view */
-  [class*="sidebar"] ul::-webkit-scrollbar {
-    height: 4px;
-  }
-  [class*="sidebar"] ul::-webkit-scrollbar-thumb {
-    background-color: var(--border-color);
-    border-radius: 4px;
-  }
-
-  [class*="sidebar"] li {
-    margin-bottom: 0 !important;
-  }
-
-  [class*="sidebar"] button {
-    padding: 8px 16px !important;
-    font-size: 13px !important;
-    background-color: var(--white);
-    border: 1px solid var(--border-color) !important;
-    border-radius: 20px !important; /* Pill shape design for easier phone tapping */
-  }
