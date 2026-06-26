@@ -32,3 +32,102 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
 }
+.homeContainer {
+  padding: 30px 5%;
+}
+
+.heroBanner {
+  background: linear-gradient(135deg, #002266 0%, #0044cc 100%);
+  color: var(--white);
+  padding: 60px 40px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.heroBanner h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Flex/Grid layout combining sidebar + product container */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+}
+
+.sidebar button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 12px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--text-dark);
+  transition: all 0.2s;
+}
+
+.sidebar button:hover {
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+}
+
+/* Highlighting selected filter active state */
+.activeTab {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+  font-weight: 600;
+}
+
+.contentSection {
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}

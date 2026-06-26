@@ -131,3 +131,51 @@ a {
     grid-template-columns: 1fr !important; 
   }
 }
+/* ... keeping your existing mobile media rules ... */
+
+  /* Reshaping Main Sidebar Structure for Small Screens */
+  [class*="mainLayout"] {
+    grid-template-columns: 1fr !important; /* Collapses layout to a single column block */
+    gap: 20px !important;
+  }
+
+  /* Transform vertical sidebar list into a horizontal scrolling row list */
+  [class*="sidebar"] {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  [class*="sidebar"] h3 {
+    display: none !important; /* Hides "Categories" text header on mobile */
+  }
+
+  [class*="sidebar"] ul {
+    display: flex !important;
+    gap: 10px;
+    overflow-x: auto; /* Activates horizontal touch swipe */
+    padding-bottom: 10px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Custom scrollbar handling for elegant mobile view */
+  [class*="sidebar"] ul::-webkit-scrollbar {
+    height: 4px;
+  }
+  [class*="sidebar"] ul::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 4px;
+  }
+
+  [class*="sidebar"] li {
+    margin-bottom: 0 !important;
+  }
+
+  [class*="sidebar"] button {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    background-color: var(--white);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 20px !important; /* Pill shape design for easier phone tapping */
+  }

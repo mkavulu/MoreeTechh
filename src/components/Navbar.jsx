@@ -1,9 +1,13 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiSearch, FiShoppingCart, FiPhone } from 'react-icons/fi';
+import { useCart } from '../context/CartContext'; // <-- 1. Import the hook
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+  const { getCartCount } = useCart(); // <-- 2. Destructure the count utility
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.topBar}>
@@ -21,7 +25,8 @@ const Navbar = () => {
         <div className={styles.navActions}>
           <Link to="/cart" className={styles.cartIcon}>
             <FiShoppingCart size={24} />
-            <span className={styles.badge}>0</span>
+            {/* 3. Use the dynamic count variable here */}
+            <span className={styles.badge}>{getCartCount()}</span>
           </Link>
         </div>
       </div>

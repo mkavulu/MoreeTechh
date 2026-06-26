@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; // <-- Added useState here
 import ProductCard from '../components/ProductCard';
 import styles from './Home.module.css';
 
@@ -10,7 +10,6 @@ import dellImage from '../assets/dell-monitor.jpeg';
 import LogitechImage from '../assets/logitech.jpg';
 import HPPrinterImage from '../assets/hp Printer.jpg';
 
-
 // 2. Assign the imported variables directly to your product object keys
 const sampleProducts = [
   { 
@@ -20,7 +19,7 @@ const sampleProducts = [
     price: 85000, 
     oldPrice: 95000, 
     specs: 'HP ProBook 450 G10 Notebook PC 13th Gen Intel Core i5-1355U Processor 15.6" FHD 8GB DDR4 SDRAM 512GB PCIe NVMe M.2 Value SSD Intel Iris Xe Graphics',
-    image: hpImage // <-- Using the imported variable
+    image: hpImage 
   },
   { 
     id: 2, 
@@ -56,7 +55,7 @@ const sampleProducts = [
     specs: 'Logitech Logitech Stereo Headset H111 Noise-cancelling microphone reduces room noise for clearer Internet calls Full stereo sound for your music, movies and games Rotating microphone boom can be worn on your left or right side Adjustable headband gives you a customized fit',
     image: LogitechImage
   },
-    { 
+  { 
     id: 6, 
     name: 'HP LaserJet Pro Multifunction M479fdw Wireless Printer', 
     category: 'HP Printer', 
@@ -67,7 +66,18 @@ const sampleProducts = [
   },
 ];
 
+// Clean category listing matching your exact dataset categories
+const categories = ['All', 'Laptops', 'Hp All-In-One', 'Monitors', 'Headphones', 'HP Printer'];
+
 const Home = () => {
+  // State hook tracking user navigation selection
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  // Condition filtering down the products array subset
+  const filteredProducts = activeCategory === 'All'
+    ? sampleProducts
+    : sampleProducts.filter(product => product.category === activeCategory);
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.heroBanner}>
@@ -75,11 +85,32 @@ const Home = () => {
         <p>Get the best deals on genuine laptops and accessories in Kenya.</p>
       </div>
       
-      <h2 className={styles.sectionTitle}>Featured Products</h2>
-      <div className={styles.productGrid}>
-        {sampleProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      {/* Structural layout block supporting your sidebar configuration */}
+      <div className={styles.mainLayout}>
+        <aside className={styles.sidebar}>
+          <h3>Categories</h3>
+          <ul>
+            {categories.map((cat) => (
+              <li key={cat}>
+                <button 
+                  className={activeCategory === cat ? styles.activeTab : ''} 
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  {cat}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </aside>
+
+        <section className={styles.contentSection}>
+          <h2 className={styles.sectionTitle}>{activeCategory} Products</h2>
+          <div className={styles.productGrid}>
+            {filteredProducts.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
