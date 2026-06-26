@@ -1,8 +1,8 @@
-import React, { useState } from 'react'; // <-- Added useState here
+import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import styles from './Home.module.css';
 
-// 1. Import your local images from the assets folder
+// Import local images
 import hpImage from '../assets/hp-probook.jpeg';
 import lenovoImage from '../assets/thinkpad-e14.jpeg';
 import AllinOneImage from '../assets/All-In-One.jpg';
@@ -10,7 +10,7 @@ import dellImage from '../assets/dell-monitor.jpeg';
 import LogitechImage from '../assets/logitech.jpg';
 import HPPrinterImage from '../assets/hp Printer.jpg';
 
-// 2. Assign the imported variables directly to your product object keys
+// Sample product dataset
 const sampleProducts = [
   { 
     id: 1, 
@@ -48,11 +48,11 @@ const sampleProducts = [
   },
   { 
     id: 5, 
-    name: 'Logitech Logitech Stereo Headset H111', 
+    name: 'Logitech Stereo Headset H111', 
     category: 'Headphones', 
     price: 3500, 
     oldPrice: 4500, 
-    specs: 'Logitech Logitech Stereo Headset H111 Noise-cancelling microphone reduces room noise for clearer Internet calls Full stereo sound for your music, movies and games Rotating microphone boom can be worn on your left or right side Adjustable headband gives you a customized fit',
+    specs: 'Logitech Stereo Headset H111 Noise-cancelling microphone reduces room noise for clearer Internet calls Full stereo sound for your music, movies and games Rotating microphone boom can be worn on your left or right side Adjustable headband gives you a customized fit',
     image: LogitechImage
   },
   { 
@@ -66,14 +66,12 @@ const sampleProducts = [
   },
 ];
 
-// Clean category listing matching your exact dataset categories
+// Categories
 const categories = ['All', 'Laptops', 'Hp All-In-One', 'Monitors', 'Headphones', 'HP Printer'];
 
-const Home = () => {
-  // State hook tracking user navigation selection
+const Home = ({ onSelectProduct }) => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  // Condition filtering down the products array subset
   const filteredProducts = activeCategory === 'All'
     ? sampleProducts
     : sampleProducts.filter(product => product.category === activeCategory);
@@ -84,8 +82,7 @@ const Home = () => {
         <h1>Upgrade Your Tech Workspace</h1>
         <p>Get the best deals on genuine laptops and accessories in Kenya.</p>
       </div>
-      
-      {/* Structural layout block supporting your sidebar configuration */}
+
       <div className={styles.mainLayout}>
         <aside className={styles.sidebar}>
           <h3>Categories</h3>
@@ -107,7 +104,13 @@ const Home = () => {
           <h2 className={styles.sectionTitle}>{activeCategory} Products</h2>
           <div className={styles.productGrid}>
             {filteredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
+              <div 
+                key={product.id} 
+                onClick={() => onSelectProduct(product)} 
+                style={{ cursor: 'pointer' }}
+              >
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
         </section>

@@ -1,0 +1,188 @@
+.detailsContainer {
+  padding: 30px 4%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #2b78e4;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.backBtn:hover {
+  transform: translateX(-4px);
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Image Presentation Section */
+.imageSection {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageWrapper img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* Information Layout Section */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.badgeCategory {
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  width: max-content;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.productName {
+  font-size: 28px;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.currentPrice {
+  font-size: 26px;
+  font-weight: 700;
+  color: #e53e3e;
+}
+
+.oldPrice {
+  font-size: 16px;
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 20px 0;
+}
+
+.specsContainer h3 {
+  font-size: 16px;
+  color: #1e293b;
+  margin: 0 0 10px 0;
+}
+
+.specsContainer p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Purchase System Options */
+.actionRow {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.addToCartBtn {
+  flex: 1;
+  padding: 15px;
+  background-color: #0f172a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.addToCartBtn:hover {
+  background-color: #1e293b;
+}
+
+.buyNowBtn {
+  flex: 1;
+  padding: 15px;
+  background-color: #25d366; /* WhatsApp Green */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buyNowBtn:hover {
+  background-color: #20ba56;
+}
+
+/* ==========================================================================
+   MOBILE BREAKPOINTS (Responsive Stack)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .detailsContainer {
+    padding: 15px 16px;
+  }
+
+  .mainLayout {
+    grid-template-columns: 1fr; /* Collapses into a clean vertical single track stack */
+    gap: 20px;
+  }
+
+  .imageSection {
+    padding: 15px;
+  }
+
+  .imageWrapper img {
+    max-height: 250px; /* Scales down image block cleanly on narrow touch screens */
+  }
+
+  .productName {
+    font-size: 20px;
+  }
+
+  .currentPrice {
+    font-size: 22px;
+  }
+
+  .actionRow {
+    flex-direction: column; /* Stack buttons vertically for easier thumb access */
+    gap: 10px;
+  }
+}
