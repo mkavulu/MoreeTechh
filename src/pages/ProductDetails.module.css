@@ -32,13 +32,19 @@
 
 /* Image Presentation Section */
 .imageSection {
-  background-color: #fff;
-  border: 1px solid #e2e8f0;
+  background-color: var(--white, #fff);
+  border: 1px solid var(--border-color, #e2e8f0);
   border-radius: 8px;
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .imageWrapper img {
@@ -94,7 +100,7 @@
 
 .divider {
   height: 1px;
-  background-color: #e2e8f0;
+  background-color: var(--border-color, #e2e8f0);
   margin: 20px 0;
 }
 
@@ -121,8 +127,8 @@
 .addToCartBtn {
   flex: 1;
   padding: 15px;
-  background-color: #0f172a;
-  color: #fff;
+  background-color: var(--primary-color, #0f172a);
+  color: var(--white, #fff);
   border: none;
   border-radius: 6px;
   font-size: 16px;
@@ -132,25 +138,13 @@
 }
 
 .addToCartBtn:hover {
-  background-color: #1e293b;
+  opacity: 0.9;
 }
+.addToCartBtn, .buyNowBtn {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-.buyNowBtn {
-  flex: 1;
-  padding: 15px;
-  background-color: #25d366; /* WhatsApp Green */
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.buyNowBtn:hover {
-  background-color: #20ba56;
-}
 
 /* ==========================================================================
    MOBILE BREAKPOINTS (Responsive Stack)
@@ -158,19 +152,25 @@
 @media (max-width: 768px) {
   .detailsContainer {
     padding: 15px 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .mainLayout {
     grid-template-columns: 1fr; /* Collapses into a clean vertical single track stack */
     gap: 20px;
+    width: 100%;
   }
 
   .imageSection {
     padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .imageWrapper img {
     max-height: 250px; /* Scales down image block cleanly on narrow touch screens */
+    width: auto;
   }
 
   .productName {
@@ -184,5 +184,30 @@
   .actionRow {
     flex-direction: column; /* Stack buttons vertically for easier thumb access */
     gap: 10px;
+    width: 100%;
   }
+  
+  .addToCartBtn, .buyNowBtn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Spans across the full height of the grid wrapper parent */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pushes the price box and add button down */
+}
+
+.specs {
+  flex-grow: 1; /* Absorbs whitespace differences from long technical strings */
+  margin-bottom: 15px;
 }

@@ -131,3 +131,9 @@
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 25px;
 }
+.gridItemWrapper {
+  cursor: pointer;
+  display: flex;         
+  flex-direction: column; 
+  height: 100%;          /* Forces the clickable div to take full row track height */
+}

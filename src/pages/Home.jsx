@@ -102,12 +102,14 @@ const Home = ({ onSelectProduct }) => {
 
         <section className={styles.contentSection}>
           <h2 className={styles.sectionTitle}>{activeCategory} Products</h2>
+          
+          {/* Updated grid layout wrapper matching equal columns */}
           <div className={styles.productGrid}>
             {filteredProducts.map(product => (
               <div 
                 key={product.id} 
                 onClick={() => onSelectProduct(product)} 
-                style={{ cursor: 'pointer' }}
+                className={styles.gridItemWrapper} /* <-- Merged layout wrapper class */
               >
                 <ProductCard product={product} />
               </div>
