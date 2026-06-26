@@ -1,0 +1,124 @@
+:root {
+  --primary-color: #003399;   /* Nairobi-style tech blue */
+  --accent-color: #e60000;    /* Deal/Sale red */
+  --text-dark: #333333;
+  --text-light: #777777;
+  --bg-light: #f4f6f9;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+a {
+  text-transform: none;
+  text-decoration: none;
+  color: inherit;
+}
+/* ==========================================================================
+   GLOBAL MOBILE RESPONSIVE STYLES (Breaks at 768px for tablets and phones)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  
+  /* 1. Global Reset Tweaks */
+  body {
+    font-size: 14px;
+  }
+
+  /* 2. Navbar Responsiveness */
+  [class*="topBar"] {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+  }
+
+  [class*="mainNav"] {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 4%;
+  }
+
+  [class*="searchBar"] {
+    width: 100%;
+    order: 3; /* Places search input below logo/cart on mobile */
+    flex: unset;
+  }
+
+  [class*="navActions"] {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 2;
+  }
+
+  /* 3. Homepage Container & Banner */
+  [class*="homeContainer"] {
+    padding: 15px 4% !important; /* Forces less whitespace on edges */
+  }
+
+  [class*="heroBanner"] {
+    padding: 30px 20px !important;
+    margin-bottom: 25px !important;
+    text-align: center;
+  }
+
+  [class*="heroBanner"] h1 {
+    font-size: 24px !important;
+  }
+
+  /* 4. Nairobi Computer Shop Style 2-Column Product Grid */
+  [class*="productGrid"] {
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 12px !important;
+  }
+
+  /* 5. Product Cards Adjustment */
+  [class*="card"] {
+    padding: 10px !important;
+  }
+
+  [class*="imageContainer"] img {
+    height: 130px !important;
+  }
+
+  [class*="title"] {
+    font-size: 13px !important;
+    height: 36px !important;
+  }
+
+  [class*="price"] {
+    font-size: 15px !important;
+  }
+
+  [class*="oldPrice"] {
+    font-size: 11px !important;
+    display: block !important;
+    margin-left: 0 !important;
+  }
+
+  [class*="addToCartBtn"] {
+    padding: 8px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* 6. Extra Rule for extremely small smartphones */
+@media (max-width: 400px) {
+  [class*="productGrid"] {
+    grid-template-columns: 1fr !important; /* Drop to a clean single column */
+  }
+}
