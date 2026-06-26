@@ -37,7 +37,7 @@ a {
     font-size: 14px;
   }
 
-  /* 2. Navbar Responsiveness */
+  /* 2. Navbar Responsiveness (FIXED) */
   [class*="topBar"] {
     flex-direction: column;
     align-items: center;
@@ -48,13 +48,22 @@ a {
   [class*="mainNav"] {
     flex-direction: column;
     gap: 15px;
-    padding: 15px 4%;
+    padding: 15px 16px !important; /* Fixed padding room on mobile screen edges */
+    align-items: stretch !important; /* Forces children to stay bounded symmetrically */
   }
 
   [class*="searchBar"] {
-    width: 100%;
-    order: 3; /* Places search input below logo/cart on mobile */
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important; /* Keeps input and button explicitly row-aligned inline */
+    order: 3; /* Places search input cleanly below logo/cart on mobile */
     flex: unset;
+    box-sizing: border-box !important; /* Forces browser to calculate width inclusive of padding/borders */
+  }
+
+  [class*="searchBar"] input {
+    width: 100% !important; /* Instructs input to fill the remaining wrapper container */
+    font-size: 16px !important; /* CRITICAL: Prevents iOS Safari/Chrome from forced auto-zooming on focus */
   }
 
   [class*="navActions"] {
@@ -67,7 +76,7 @@ a {
 
   /* 3. Homepage Container & Banner */
   [class*="homeContainer"] {
-    padding: 15px 4% !important; /* Forces less whitespace on edges */
+    padding: 15px 4% !important; 
   }
 
   [class*="heroBanner"] {
@@ -119,6 +128,6 @@ a {
 /* 6. Extra Rule for extremely small smartphones */
 @media (max-width: 400px) {
   [class*="productGrid"] {
-    grid-template-columns: 1fr !important; /* Drop to a clean single column */
+    grid-template-columns: 1fr !important; 
   }
 }
