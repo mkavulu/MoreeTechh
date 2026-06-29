@@ -65,7 +65,7 @@ const Footer = () => {
 
       {/* Copyright Sub-Baseline Footer */}
       <div className={styles.footerBottom}>
-        <p>&copy; 2026 Nairobi Computers Distributors. All Rights Reserved.</p>
+        <p>&copy; 2026 MoreeTech. All Rights Reserved.</p>
         <p className={styles.branding}>Crafted by <span className={styles.brandName}>Diml Tech</span>.</p>
       </div>
     </footer>
