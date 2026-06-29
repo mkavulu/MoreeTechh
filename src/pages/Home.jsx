@@ -9,6 +9,12 @@ import AllinOneImage from '../assets/All-In-One.jpg';
 import dellImage from '../assets/dell-monitor.jpeg';
 import LogitechImage from '../assets/logitech.jpg';
 import HPPrinterImage from '../assets/hp Printer.jpg';
+import HpEliteBookImage from '../assets/Hp-EliteBook.jpg';
+import HPPoBookImage from '../assets/Hp-ProBook 430 G7.jpeg';
+import HpProbookBookImage from '../assets/Hp-Probook 640.jpg';
+import HpEliteBookBookImage from '../assets/Hp-840g3.jpg';
+import HpEliteImage from '../assets/Hp-840g3.jpg';
+
 
 // Sample product dataset
 const sampleProducts = [
@@ -55,8 +61,57 @@ const sampleProducts = [
     specs: 'Logitech Stereo Headset H111 Noise-cancelling microphone reduces room noise for clearer Internet calls Full stereo sound for your music, movies and games Rotating microphone boom can be worn on your left or right side Adjustable headband gives you a customized fit',
     image: LogitechImage
   },
+  
   { 
-    id: 6, 
+    id:6, 
+    name: 'HP ProBook 430 G7', 
+    category: 'Laptops', 
+    price: 30500,  
+    specs: 'HP ProBook 430 G7 Notebook PC Intel i7-8565U with 8GB RAM, 256 GB SSD, 13.3-inch',
+    image: HPPoBookImage
+  },
+  { 
+    id: 7, 
+    name: 'EliteBook 820 G2 ', 
+    category: 'Laptops', 
+    price: 22500, 
+    specs: 'EliteBook 820 G2 Core I5 8GB RAM 256gb ssd Slim Ultrabook Laptop Refurbished',
+    image: HpEliteBookImage
+  },
+   { 
+    id: 9, 
+    name: 'ProBook 640 G3 ', 
+    category: 'Laptops', 
+    price: 23500, 
+    specs: 'Hp Probook  640g3 (z2w37ea), intel core i5-7200u, 2.5ghz, 4gb 256gb ssd, 14"hd Laptop Refurbished',
+    image: HpProbookBookImage
+  },
+   { 
+    id: 10, 
+    name: 'ProBook 640 G3 ', 
+    category: 'Laptops', 
+    price: 23500, 
+    specs: 'Hp Probook  640g3 (z2w37ea), intel core i5-7200u, 2.5ghz, 4gb 256gb ssd, 14"hd Laptop Refurbished',
+    image: HpProbookBookImage
+  },
+   { 
+    id: 11, 
+    name: 'HP EliteBook 840 G3 ', 
+    category: 'Laptops', 
+    price: 26000, 
+    specs: 'HP EliteBook 840 G3 Laptop 14" HD Display, Intel Core i5-6300U 2.4Ghz,6th Gen, 256GB SSD, 8GB DDR4 RAM, Webcam, WiFi, Windows 11 ProRefurbished',
+    image: HpEliteBookBookImage
+  },
+  { 
+    id: 12, 
+    name: 'HP EliteBook 840 G3 ', 
+    category: 'Laptops', 
+    price: 28000, 
+    specs: 'HP Refurbished EliteBook 840 G3 Core I7 8GB RAM 256GB SSD 6th Gen 14Inch Win 11',
+    image: HpEliteImage
+  },
+  { 
+    id: 13, 
     name: 'HP LaserJet Pro Multifunction M479fdw Wireless Printer', 
     category: 'HP Printer', 
     price: 125900, 
@@ -67,7 +122,7 @@ const sampleProducts = [
 ];
 
 // Categories
-const categories = ['All', 'Laptops', 'Hp All-In-One', 'Monitors', 'Headphones', 'HP Printer'];
+const categories = ['All', 'Laptops', 'Hp All-In-One', 'Monitors', 'Headphones', 'HP Printer','Phones','Accessories'];
 
 const Home = ({ onSelectProduct }) => {
   const [activeCategory, setActiveCategory] = useState('All');

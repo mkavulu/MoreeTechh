@@ -1,16 +1,32 @@
-import React from 'react';
-import styles from './ProductDetails.module.css';
+import React from "react";
+import styles from "./ProductDetails.module.css";
+
+// 💡 Dependency imports from react-icons have been completely removed to stop Vite crashes
 
 const ProductDetails = ({ product, onBack }) => {
   if (!product) return null;
 
   // Format currency to Kenyan Shillings cleanly
   const formatKES = (amount) => {
-    return new Intl.NumberFormat('en-KE', {
-      style: 'currency',
-      currency: 'KES',
-      minimumFractionDigits: 0
+    return new Intl.NumberFormat("en-KE", {
+      style: "currency",
+      currency: "KES",
+      minimumFractionDigits: 0,
     }).format(amount);
+  };
+
+  // WHATSAPP INTEGRATION ENGINE
+  const handleWhatsAppOrder = () => {
+    const phoneNumber = "254724137327"; 
+
+    // Create a personalized, URL-safe order message string
+    const message = `Hello, I'm interested in purchasing the *${product.name}* listed for *${formatKES(product.price)}*.\n\nCategory: ${product.category}\n\nPlease advise on availability and delivery options.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Safe cross-origin window dispatch
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -32,11 +48,15 @@ const ProductDetails = ({ product, onBack }) => {
         <div className={styles.infoSection}>
           <span className={styles.badgeCategory}>{product.category}</span>
           <h1 className={styles.productName}>{product.name}</h1>
-          
+
           <div className={styles.priceContainer}>
-            <span className={styles.currentPrice}>{formatKES(product.price)}</span>
+            <span className={styles.currentPrice}>
+              {formatKES(product.price)}
+            </span>
             {product.oldPrice && (
-              <span className={styles.oldPrice}>{formatKES(product.oldPrice)}</span>
+              <span className={styles.oldPrice}>
+                {formatKES(product.oldPrice)}
+              </span>
             )}
           </div>
 
@@ -51,10 +71,15 @@ const ProductDetails = ({ product, onBack }) => {
 
           {/* Action Row */}
           <div className={styles.actionRow}>
-            <button className={styles.addToCartBtn}>
-              Add to Cart
-            </button>
-            <button className={styles.buyNowBtn}>
+            <button className={styles.addToCartBtn}>Add to Cart</button>
+
+            {/* FIX: Swapped react-icons for a lightweight, native img asset element */}
+            <button className={styles.buyNowBtn} onClick={handleWhatsAppOrder}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+                alt="WhatsApp" 
+                style={{ width: '20px', height: '20px' }} 
+              />
               Buy Now (WhatsApp)
             </button>
           </div>

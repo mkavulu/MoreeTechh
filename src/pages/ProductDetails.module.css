@@ -134,17 +134,42 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .addToCartBtn:hover {
-  opacity: 0.9;
+  background-color: #1e293b;
+  transform: translateY(-1px);
 }
-.addToCartBtn, .buyNowBtn {
-    width: 100%;
-    box-sizing: border-box;
-  }
 
+/* PREMIUM LOOK FOR WHATSAPP BUTTON */
+.buyNowBtn {
+  flex: 1;
+  padding: 15px;
+  background-color: #25d366; /* Official WhatsApp Green */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); /* Soft ambient green glow */
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.buyNowBtn:hover {
+  background-color: #20ba56;
+  transform: translateY(-2px); /* Lifts up slightly when hovering over it */
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35); /* Deepens shadow pull */
+}
+
+.buyNowBtn:active {
+  transform: translateY(0); /* Snaps down slightly when clicked */
+}
 
 /* ==========================================================================
    MOBILE BREAKPOINTS (Responsive Stack)
@@ -183,31 +208,13 @@
 
   .actionRow {
     flex-direction: column; /* Stack buttons vertically for easier thumb access */
-    gap: 10px;
+    gap: 12px;
     width: 100%;
   }
   
   .addToCartBtn, .buyNowBtn {
     width: 100%;
     box-sizing: border-box;
+    padding: 14px;
   }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* Spans across the full height of the grid wrapper parent */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Pushes the price box and add button down */
-}
-
-.specs {
-  flex-grow: 1; /* Absorbs whitespace differences from long technical strings */
-  margin-bottom: 15px;
 }
