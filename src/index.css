@@ -42,7 +42,6 @@ a {
 /* ==========================================================================
    GLOBAL MOBILE RESPONSIVE STYLES (Breaks at 768px for tablets and phones)
    ========================================================================== */
-
 @media (max-width: 768px) {
   
   /* 1. Global Reset Tweaks */
@@ -152,35 +151,57 @@ a {
     border-radius: 20px !important; 
   }
 
-  /* 5. Product Grid Matrix Layout */
-  [class*="productGrid"] {
+  /* ==========================================================================
+     5. Product Grid Matrix Layout (UPDATED GLOBAL FORCE)
+     ========================================================================== */
+  body [class*="productGrid"] {
     display: grid !important;
-    /* Forces exactly 2 equal columns without extending past the screen boundary */
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
-    gap: 10px !important; /* Tighter gaps look clean on mobile devices */
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Strictly forces a 2-column grid side-by-side */
+    gap: 8px !important;                                         /* Compact spacing for smartphone viewports */
     width: 100% !important;
     max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
     box-sizing: border-box !important;
   }
 
-  /* 6. Product Cards Adjustment */
-  [class*="card"] {
-    padding: 10px !important;
-    width: 100% !important; /* Snaps safely to its assigned grid track width */
+  body [class*="gridItemWrapper"] {
+    width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    background-color: var(--white);
-    border: 1px solid var(--border-color);
-    
-    /* MAINTAINS EQUAL HEIGHTS: Keeps the flex values active on mobile viewports */
+    display: flex !important;
+  }
+
+  /* ==========================================================================
+     6. Product Cards Adjustment (Fixes huge white blocks and image cut-offs)
+     ========================================================================== */
+  body [class*="card"] {
+    padding: 8px !important;
+    width: 100% !important;      /* Snaps the card tightly to its 50% screen track */
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    background-color: #ffffff !important;
     display: flex !important;
     flex-direction: column !important;
+    border-radius: 6px !important;
   }
 
-  [class*="imageContainer"] img {
-    height: 110px !important; /* Shorter image height prevents huge cards on narrow screens */
+  body [class*="imageContainer"] {
     width: 100% !important;
-    object-fit: contain !important;
+    height: 110px !important;    /* Shrinks the enormous empty vertical white space */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    margin-bottom: 8px !important;
+  }
+
+  body [class*="imageContainer"] img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important; /* Pulls the cut-off laptop image back into the box center */
   }
 
   [class*="title"] {
@@ -205,4 +226,3 @@ a {
     margin-top: auto !important; /* Anchors button base to card floor on responsive scaling */
   }
 }
-
