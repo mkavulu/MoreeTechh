@@ -206,9 +206,3 @@ a {
   }
 }
 
-/* 7. Extra Rule for small screen layout drops */
-@media (max-width: 420px) {
-  [class*="productGrid"] {
-    grid-template-columns: 1fr !important; /* Drops to a single wide list column if viewport is under 420px */
-  }
-}

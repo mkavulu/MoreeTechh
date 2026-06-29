@@ -123,30 +123,30 @@
 }
 
 /* ==========================================================================
-   MOBILE ECOSYSTEM RE-ALIGNMENT (Fixes horizontal scroll stretching)
+   MOBILE ECOSYSTEM RE-ALIGNMENT (Unified version)
    ========================================================================== */
 @media (max-width: 768px) {
   .homeContainer {
-    padding: 20px 12px;
+    padding: 18px 10px; /* balanced between 15px and 20px */
   }
 
   .heroBanner {
-    padding: 30px 20px;
-    margin-bottom: 25px;
+    padding: 28px 18px; /* compromise between 25px and 30px */
+    margin-bottom: 22px;
     text-align: center;
   }
 
   .heroBanner h1 {
-    font-size: 24px;
+    font-size: 23px; /* middle ground between 22px and 24px */
   }
 
-  /* 💡 Collapse the 240px split grid into a clean single vertical stack */
+  /* Collapse grid into single vertical stack */
   .mainLayout {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
-  /* Transform the vertical sidebar into an elegant swipeable category bar */
+  /* Sidebar becomes swipeable category bar */
   .sidebar {
     background: none;
     border: none;
@@ -155,44 +155,45 @@
   }
 
   .sidebar h3 {
-    display: none; /* Hides the "Categories" text header on mobile */
+    display: none; /* hide "Categories" header on mobile */
   }
 
   .sidebar ul {
     display: flex;
-    gap: 10px;
-    overflow-x: auto; /* Activates seamless horizontal finger scrolling */
-    padding-bottom: 10px;
+    gap: 9px; /* compromise between 8px and 10px */
+    overflow-x: auto;
+    padding-bottom: 9px;
     margin: 0;
-    white-space: nowrap; /* Forces tags to stay inline instead of breaking line floors */
+    white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Style adjustment for pill elements */
   .sidebar li {
     margin-bottom: 0;
     display: inline-block;
   }
 
   .sidebar button {
-    padding: 8px 16px;
+    padding: 7px 15px; /* compromise between 6x14 and 8x16 */
     font-size: 13px;
     background-color: var(--white);
     border: 1px solid var(--border-color);
-    border-radius: 20px; /* Transforms them into sleek touch capsules */
+    border-radius: 20px; /* pill style */
     text-align: center;
     width: auto;
   }
 
-  /* Force exactly 2 columns side-by-side on mobile screen tracks */
+  /* Force exactly 2 columns side-by-side on mobile */
   .productGrid {
+    display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px;
+    gap: 11px !important; /* compromise between 10px and 12px */
+    width: 100% !important;
   }
 }
 
 @media (max-width: 420px) {
-  /* Safety drop down to single item rows for miniature devices */
+  /* Safety fallback: single column for miniature devices */
   .productGrid {
     grid-template-columns: 1fr !important;
   }
