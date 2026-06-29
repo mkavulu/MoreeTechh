@@ -1,39 +1,16 @@
+:root {
+  /* Dynamic fallback definitions for styling safety */
+  --white: #ffffff;
+  --bg-light: #f4f6f9;
+  --text-dark: #333333;
+  --border-color: #e0e0e0;
+  --primary-color: #003399;
+}
+
 .homeContainer {
-  padding: 30px 5%;
-}
-.heroBanner {
-  background: linear-gradient(135deg, #002266 0%, #0044cc 100%);
-  color: var(--white);
-  padding: 60px 40px;
-  border-radius: 8px;
-  margin-bottom: 40px;
-}
-.heroBanner h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-.sectionTitle {
-  font-size: 22px;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 5px;
-}
-.sectionTitle::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--primary-color);
-}
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
-}
-.homeContainer {
-  padding: 30px 5%;
+  padding: 30px 4%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .heroBanner {
@@ -49,15 +26,16 @@
   margin-bottom: 10px;
 }
 
-/* Flex/Grid layout combining sidebar + product container */
+/* Base Desktop Grid Layout Configuration */
 .mainLayout {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 30px;
   align-items: start;
+  width: 100%;
 }
 
-/* Sidebar Styling */
+/* Sidebar Filter Panel Styles */
 .sidebar {
   background-color: var(--white);
   border: 1px solid var(--border-color);
@@ -98,7 +76,7 @@
   color: var(--primary-color);
 }
 
-/* Highlighting selected filter active state */
+/* Highlighting Selected Filter State */
 .activeTab {
   background-color: var(--primary-color) !important;
   color: var(--white) !important;
@@ -126,14 +104,96 @@
   background-color: var(--primary-color);
 }
 
+/* Desktop Product Matrix System */
 .productGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 25px;
+  width: 100%;
 }
+
+/* Fluid Wrapper Grid Component Tracker */
 .gridItemWrapper {
   cursor: pointer;
   display: flex;         
   flex-direction: column; 
-  height: 100%;          /* Forces the clickable div to take full row track height */
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   MOBILE ECOSYSTEM RE-ALIGNMENT (Fixes horizontal scroll stretching)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .homeContainer {
+    padding: 20px 12px;
+  }
+
+  .heroBanner {
+    padding: 30px 20px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .heroBanner h1 {
+    font-size: 24px;
+  }
+
+  /* 💡 Collapse the 240px split grid into a clean single vertical stack */
+  .mainLayout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Transform the vertical sidebar into an elegant swipeable category bar */
+  .sidebar {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .sidebar h3 {
+    display: none; /* Hides the "Categories" text header on mobile */
+  }
+
+  .sidebar ul {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Activates seamless horizontal finger scrolling */
+    padding-bottom: 10px;
+    margin: 0;
+    white-space: nowrap; /* Forces tags to stay inline instead of breaking line floors */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Style adjustment for pill elements */
+  .sidebar li {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  .sidebar button {
+    padding: 8px 16px;
+    font-size: 13px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 20px; /* Transforms them into sleek touch capsules */
+    text-align: center;
+    width: auto;
+  }
+
+  /* Force exactly 2 columns side-by-side on mobile screen tracks */
+  .productGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Safety drop down to single item rows for miniature devices */
+  .productGrid {
+    grid-template-columns: 1fr !important;
+  }
 }
