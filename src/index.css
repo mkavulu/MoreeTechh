@@ -9,8 +9,20 @@
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ==========================================================================
+   PRODUCTION VIEWPORT DECK (Forces strict mobile layout containment)
+   ========================================================================== */
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important; /* Locks layout down to stop sideways shaking or scrolling */
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   margin: 0;
   padding: 0;
 }
@@ -36,7 +48,6 @@ a {
   /* 1. Global Reset Tweaks */
   body {
     font-size: 14px;
-    overflow-x: hidden; /* Strongly prevents accidental sideways shaking or scrolling */
   }
 
   /* 2. Navbar Responsiveness */
@@ -155,7 +166,7 @@ a {
   /* 6. Product Cards Adjustment */
   [class*="card"] {
     padding: 10px !important;
-    width: 100% !important; /* Snaps safely to its assigned grid track grid width */
+    width: 100% !important; /* Snaps safely to its assigned grid track width */
     max-width: 100% !important;
     box-sizing: border-box !important;
     background-color: var(--white);
@@ -174,7 +185,7 @@ a {
 
   [class*="title"] {
     font-size: 13px !important;
-    min-height: 38px !important; /* Changed from strict height to allow dynamic alignment scaling */
+    min-height: 38px !important; /* Allows dynamic alignment scaling */
     line-height: 1.3 !important;
   }
 

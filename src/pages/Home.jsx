@@ -14,6 +14,8 @@ import HPPoBookImage from '../assets/Hp-ProBook 430 G7.jpeg';
 import HpProbookBookImage from '../assets/Hp-Probook 640.jpg';
 import HpEliteBookBookImage from '../assets/Hp-840g3.jpg';
 import HpEliteImage from '../assets/Hp-840g3.jpg';
+import IphoneImage from '../assets/Iphone 17 Promax.jpeg';
+import IphoneproImage from '../assets/Apple-iPhone-17-Pro-Max.jpg';
 
 
 // Sample product dataset
@@ -110,8 +112,24 @@ const sampleProducts = [
     specs: 'HP Refurbished EliteBook 840 G3 Core I7 8GB RAM 256GB SSD 6th Gen 14Inch Win 11',
     image: HpEliteImage
   },
-  { 
+ { 
     id: 13, 
+    name: 'Iphone Pro Max ', 
+    category: 'Phones', 
+    price: 198000, 
+    specs: 'Iphone Promax 256 Gb 2yrs Sim Silver',
+    image: IphoneImage
+  },
+  { 
+    id: 14, 
+    name: 'Iphone 17 Pro Max 256GB', 
+    category: 'Phones', 
+    price: 197000, 
+    specs: 'IPHONE 17 PRO MAX 256GB - 2YRS SIM BLUE | ORANGE',
+    image: IphoneproImage
+  },
+  { 
+    id: 15, 
     name: 'HP LaserJet Pro Multifunction M479fdw Wireless Printer', 
     category: 'HP Printer', 
     price: 125900, 
