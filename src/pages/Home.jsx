@@ -16,6 +16,12 @@ import HpEliteBookBookImage from '../assets/Hp-840g3.jpg';
 import HpEliteImage from '../assets/Hp-840g3.jpg';
 import IphoneImage from '../assets/Iphone 17 Promax.jpeg';
 import IphoneproImage from '../assets/Apple-iPhone-17-Pro-Max.jpg';
+import IphonepromaxImage from '../assets/Iphone 17 pro max 256gb sim.jpg';
+import IphoneprosilverImage from '../assets/iphone-17-pro-silver-1.jpg';
+import IphoneproBlueImage from '../assets/Iphone 17 Pro Max 2.jpg';
+import Iphonepro2Image from '../assets/Apple-iPhone-17-Pro.jpg';
+import Iphonepro3Image from '../assets/IPHONE 17 PRO MAX 256GB DUOS Physical ACTIVE blue orange.jpeg';
+import Iphonepro4Image from '../assets/iphone-17-pro-cosmic-orange-512gb-back_1.jpg';
 
 
 // Sample product dataset
@@ -58,8 +64,8 @@ const sampleProducts = [
     id: 5, 
     name: 'Logitech Stereo Headset H111', 
     category: 'Headphones', 
-    price: 3500, 
-    oldPrice: 4500, 
+    price: 2800, 
+    oldPrice: 3500, 
     specs: 'Logitech Stereo Headset H111 Noise-cancelling microphone reduces room noise for clearer Internet calls Full stereo sound for your music, movies and games Rotating microphone boom can be worn on your left or right side Adjustable headband gives you a customized fit',
     image: LogitechImage
   },
@@ -114,7 +120,7 @@ const sampleProducts = [
   },
  { 
     id: 13, 
-    name: 'Iphone Pro Max ', 
+    name: 'Iphone 17 Pro Max 256GB Brand New ', 
     category: 'Phones', 
     price: 198000, 
     specs: 'Iphone Promax 256 Gb 2yrs Sim Silver',
@@ -122,14 +128,62 @@ const sampleProducts = [
   },
   { 
     id: 14, 
-    name: 'Iphone 17 Pro Max 256GB', 
+    name: 'Iphone 17 Pro Max 256GB Brand New', 
     category: 'Phones', 
     price: 197000, 
     specs: 'IPHONE 17 PRO MAX 256GB - 2YRS SIM BLUE | ORANGE',
+    image: IphonepromaxImage
+  },
+   { 
+    id: 15, 
+    name: 'Iphone 17 Pro Max 256GB Brand New', 
+    category: 'Phones', 
+    price: 195000, 
+    specs: 'IPHONE 17 PRO MAX 256GB - SIM ORANGE NON - ACTIVE',
     image: IphoneproImage
   },
   { 
-    id: 15, 
+    id: 16, 
+    name: 'Iphone 17 Pro Max 256GB Brand New', 
+    category: 'Phones', 
+    price: 188000, 
+    specs: 'IPHONE 17 PRO MAX 256GB - ESIM SILVER ',
+    image: IphoneprosilverImage
+  },
+  { 
+    id: 17, 
+    name: 'Iphone 17 Pro Max 256GB Brand New', 
+    category: 'Phones', 
+    price: 186000, 
+    specs: 'PHONE 17 PRO MAX 256GB - ESIM BLUE ',
+    image: IphoneproBlueImage
+  },
+  { 
+    id: 18, 
+    name: 'Iphone 17 Pro Max 256GB Brand New', 
+    category: 'Phones', 
+    price: 190000, 
+    specs: 'PHONE 17 PRO MAX 256GB - DUOS Physical ACTIVE silver  ',
+    image: Iphonepro2Image
+  },
+  { 
+    id: 19, 
+    name: 'Iphone 17 Pro Max 256GB Brand New', 
+    category: 'Phones', 
+    price: 190000, 
+    specs: 'IPHONE 17 PRO MAX 256GB - DUOS Physical ACTIVE blue/orange ',
+    image: Iphonepro3Image
+  },
+   { 
+    id: 19, 
+    name: 'Iphone 17 256GB Brand New', 
+    category: 'Phones', 
+    price: 175000, 
+    specs: 'IPHONE 17 PRO 256GB - ESIM ORANGE , BLUE & SILVER  ',
+    image: Iphonepro4Image
+  },
+  { 
+    id: 20, 
     name: 'HP LaserJet Pro Multifunction M479fdw Wireless Printer', 
     category: 'HP Printer', 
     price: 125900, 
