@@ -120,7 +120,9 @@ a {
     border: none !important;
     padding: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
+    overflow: hidden !important; /* Prevents container box breaking layout width */
   }
 
   [class*="sidebar"] h3 {
@@ -130,17 +132,20 @@ a {
   [class*="sidebar"] ul {
     display: flex !important;
     gap: 10px !important;
-    overflow-x: auto !important; /* Enables horizontal swipe scrolling */
-    padding-bottom: 12px !important;
+    overflow-x: auto !important;             /* Explicitly overrides parent hidden rules for horizontal swiping */
+    overflow-y: hidden !important;
+    padding: 4px 4px 12px 4px !important;   /* Added horizontal padding to prevent clipping active rings */
     margin: 0 !important;
     list-style: none !important;
-    white-space: nowrap !important;
-    -webkit-overflow-scrolling: touch;
+    white-space: nowrap !important;          /* Keeps items on a single horizontal row */
+    -webkit-overflow-scrolling: touch !important; /* Enables smooth, native mobile momentum scrolling */
+    width: 100% !important;
   }
 
   [class*="sidebar"] li {
     margin-bottom: 0 !important;
     display: inline-block !important;
+    flex-shrink: 0 !important;               /* Prevents text squeezing/smushing under narrow screens */
   }
 
   [class*="sidebar"] button {
