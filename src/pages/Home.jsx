@@ -47,6 +47,7 @@ import Keyboard2Image from "../assets/Gaming Keyboard.jpg";
 import ExtenderImage from "../assets/tplink ac 1200.jpeg";
 import Extender2Image from "../assets/TP link AC750.jpg";
 import TplinkImage from "../assets/TP Link AX3000.jpeg";
+import Tplink1Image from "../assets/TP Link Archer AX 12.jpeg";
 
 // Sample product dataset
 const sampleProducts = [
@@ -442,6 +443,14 @@ const sampleProducts = [
     price: 27500,
     specs:"Superior WiFi 6 Speeds: Delivers dual band speeds of up to 3 Gbps powered by the latest WiFi 6 technology,PoE Powered: : Supports both 802.3at PoE+ and Passive PoE (adapter included) power supply for flexible installation,Centralized Cloud Management: Omada SDN integration manages the whole network locally or from the cloud via web UI or the Omada app.",
     image: TplinkImage,
+  },
+   {
+    id: 45,
+    name: "TP-Link Archer AX12 AX1500 WiFi 6 Router",
+    category: "Accessories",
+    price: 4800,
+    specs:"TP-Link Archer AX12 AX1500 WiFi 6 Router, Dual Band, WPA3, Up to 1201Mbps, Black, Model AX12",
+    image: Tplink1Image,
   },
 ];
 
