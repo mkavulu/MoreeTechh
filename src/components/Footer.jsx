@@ -2,19 +2,56 @@ import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import styles from './Footer.module.css';
 
-const Footer = () => {
+// 💡 Added onSelectCategory prop alongside your existing onSelectInfo prop
+const Footer = ({ onSelectInfo, onSelectCategory }) => {
+  
+  // Helper to handle smooth routing transitions back to specific storefront elements
+  const handleCategoryClick = (categoryName) => {
+    if (onSelectCategory) {
+      onSelectCategory(categoryName);
+    }
+  };
+
   return (
     <footer className={styles.footerContainer}>
       <div className={styles.footerGrid}>
         
-        {/* Column 1: Shop With Us */}
+        {/* Column 1: Shop With Us (Merged with Dynamic Store Category Triggers from Capture444444_2.JPG) */}
         <div className={styles.footerColumn}>
           <h3>Shop With Us</h3>
-          <ul>
-            <li><a href="#laptops">Laptops & Desktops</a></li>
-            <li><a href="#monitors">Monitors & Displays</a></li>
-            <li><a href="#accessories">Computer Accessories</a></li>
-            <li><a href="#networking">Networking Equipment</a></li>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => handleCategoryClick('Laptops & Desktops')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Laptops & Desktops
+              </button>
+            </li>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => handleCategoryClick('Monitors & Displays')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Monitors & Displays
+              </button>
+            </li>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => handleCategoryClick('Computer Accessories')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Computer Accessories
+              </button>
+            </li>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => handleCategoryClick('Networking Equipment')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Networking Equipment
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -44,10 +81,31 @@ const Footer = () => {
         {/* Column 4: Quick Policy & Follow Links */}
         <div className={styles.footerColumn}>
           <h3>Privacy Policy</h3>
-          <ul className={styles.policySpace}>
-            <li><a href="#privacy">Terms & Conditions</a></li>
-            <li><a href="#privacy">Privacy Protection Policy</a></li>
-            <li><a href="#privacy">Return & Warranty Policy</a></li>
+          <ul className={styles.policySpace} style={{ listStyle: 'none', padding: 0 }}>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => onSelectInfo('terms')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Terms & Conditions
+              </button>
+            </li>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => onSelectInfo('privacy')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Privacy Protection Policy
+              </button>
+            </li>
+            <li style={{ marginBottom: '10px' }}>
+              <button 
+                onClick={() => onSelectInfo('warranty')} 
+                style={{ background: 'none', border: 'none', color: '#b0c4de', cursor: 'pointer', textAlign: 'left', padding: 0, font: 'inherit' }}
+              >
+                Return & Warranty Policy
+              </button>
+            </li>
           </ul>
           
           <h3 className={styles.followTitle}>Follow Us</h3>

@@ -7,30 +7,40 @@
   --white: #ffffff;
   --border-color: #e0e0e0;
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* 💡 FIX 1: Explicitly tell the browser engine to allow programmatic coordinate snapping */
+  scroll-behavior: auto !important; 
 }
 
 /* ==========================================================================
-   PRODUCTION VIEWPORT DECK (Forces strict mobile layout containment)
+   PRODUCTION VIEWPORT DECK (Optimized to allow JavaScript programmatic scrolling)
    ========================================================================== */
-html, body {
-  width: 100% !important;
-  max-width: 100vw !important;
-  overflow-x: hidden !important; /* Locks layout down to stop sideways shaking or scrolling */
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
+html {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  /* 💡 FIX 2: Swapped out 'hidden' for 'clip' or standard containment parameters.
+     This stops the horizontal layout shake without breaking window tracking elements. */
+  overflow-x: clip; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
 }
 
 * {
   box-sizing: border-box !important;
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: var(--font-main);
-  background-color: var(--bg-light);
-  color: var(--text-dark);
 }
 
 a {
@@ -92,7 +102,7 @@ a {
   [class*="homeContainer"] {
     padding: 20px 12px !important; 
     width: 100% !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
@@ -122,7 +132,7 @@ a {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    overflow: hidden !important; /* Prevents container box breaking layout width */
+    overflow: hidden !important; 
   }
 
   [class*="sidebar"] h3 {
@@ -132,20 +142,20 @@ a {
   [class*="sidebar"] ul {
     display: flex !important;
     gap: 10px !important;
-    overflow-x: auto !important;             /* Explicitly overrides parent hidden rules for horizontal swiping */
+    overflow-x: auto !important;             
     overflow-y: hidden !important;
-    padding: 4px 4px 12px 4px !important;   /* Added horizontal padding to prevent clipping active rings */
+    padding: 4px 4px 12px 4px !important;   
     margin: 0 !important;
     list-style: none !important;
-    white-space: nowrap !important;          /* Keeps items on a single horizontal row */
-    -webkit-overflow-scrolling: touch !important; /* Enables smooth, native mobile momentum scrolling */
+    white-space: nowrap !important;          
+    -webkit-overflow-scrolling: touch !important; 
     width: 100% !important;
   }
 
   [class*="sidebar"] li {
     margin-bottom: 0 !important;
     display: inline-block !important;
-    flex-shrink: 0 !important;               /* Prevents text squeezing/smushing under narrow screens */
+    flex-shrink: 0 !important;               
   }
 
   [class*="sidebar"] button {
@@ -161,8 +171,8 @@ a {
      ========================================================================== */
   body [class*="productGrid"] {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Strictly forces a 2-column grid side-by-side */
-    gap: 8px !important;                                         /* Compact spacing for smartphone viewports */
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+    gap: 8px !important;                                         
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
@@ -182,7 +192,7 @@ a {
      ========================================================================== */
   body [class*="card"] {
     padding: 8px !important;
-    width: 100% !important;      /* Snaps the card tightly to its 50% screen track */
+    width: 100% !important;      
     max-width: 100% !important;
     box-sizing: border-box !important;
     background-color: #ffffff !important;
@@ -193,7 +203,7 @@ a {
 
   body [class*="imageContainer"] {
     width: 100% !important;
-    height: 110px !important;    /* Shrinks the enormous empty vertical white space */
+    height: 110px !important;    
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -206,12 +216,12 @@ a {
     max-width: 100% !important;
     width: auto !important;
     height: auto !important;
-    object-fit: contain !important; /* Pulls the cut-off laptop image back into the box center */
+    object-fit: contain !important; 
   }
 
   [class*="title"] {
     font-size: 13px !important;
-    min-height: 38px !important; /* Allows dynamic alignment scaling */
+    min-height: 38px !important; 
     line-height: 1.3 !important;
   }
 
@@ -228,6 +238,6 @@ a {
   [class*="addToCartBtn"] {
     padding: 8px !important;
     font-size: 12px !important;
-    margin-top: auto !important; /* Anchors button base to card floor on responsive scaling */
+    margin-top: auto !important; 
   }
 }

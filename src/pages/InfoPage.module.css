@@ -1,0 +1,60 @@
+.infoContainer {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-main);
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+/* Replicating the distinct header style seen in Capture444444.JPG */
+.pageHeader {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0b1a30; /* Deep navy matching your capture block */
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.pageHeader::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color); /* The blue underline accent seen in the image */
+}
+
+.contentBody h3 {
+  margin: 20px 0 10px 0;
+  color: var(--text-dark);
+  font-size: 18px;
+}
+
+.contentBody p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 15px;
+}

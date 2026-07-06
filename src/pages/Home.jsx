@@ -18,6 +18,7 @@ import Logitech2Image from '../assets/logitech H390.jpg';
 import Logitech3Image from '../assets/Logitech-H600-2.jpg';
 import Logitech4Image from '../assets/Logitech H540.jpg';
 import HPPrinterImage from '../assets/hp Printer.jpg';
+import epsonPrinterImage from '../assets/l3250-epson.jpg';
 import HpEliteBookImage from '../assets/Hp-EliteBook.jpg';
 import HPPoBookImage from '../assets/Hp-ProBook 430 G7.jpeg';
 import HpProbookBookImage from '../assets/Hp-Probook 640.jpg';
@@ -319,6 +320,15 @@ const sampleProducts = [
     oldPrice: 135000, 
     specs: 'HP Color LaserJet Pro Multifunction M479fdw Wireless Laser Print 2-sided scanning, 250-sheet input tray, print speed up to 28 pages every minute 50-sheet auto document feeder Energy efficiency saves up to 18% In-built Wi-Fi direct to directly connect to a smartphone',
     image: HPPrinterImage
+  },
+   { 
+    id: 36, 
+    name: 'Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer', 
+    category: 'HP Printer', 
+    price: 26500, 
+    oldPrice: 28000, 
+    specs: 'Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer',
+    image: epsonPrinterImage
   },
 ];
 
