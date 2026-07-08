@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductCard from "../components/ProductCard";
 import styles from "./Home.module.css";
 
@@ -346,7 +346,7 @@ const sampleProducts = [
   {
     id: 35,
     name: "HP LaserJet Pro Multifunction M479fdw Wireless Printer",
-    category: "HP Printer",
+    category: "Printers", // 💡 Changed to match the uniform category
     price: 125900,
     oldPrice: 135000,
     specs:
@@ -356,7 +356,7 @@ const sampleProducts = [
   {
     id: 36,
     name: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
-    category: "HP Printer",
+    category: "Printers", // 💡 Changed to match the uniform category
     price: 26500,
     oldPrice: 28000,
     specs: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
@@ -420,12 +420,12 @@ const sampleProducts = [
     specs:"USB wired keyboard 104keys mechanical LED backlit rainbow gaming keyboard for PC computer laptop",
     image: Keyboard2Image,
   },
-   {
+  {
     id: 44,
     name: "TP-Link AC1200 Wireless N Wall Plugged Range Extender - TL-RE305",
     category: "Accessories",
     price: 7200,
-    specs:"Brings Wi-Fi dead zone to life with strong Wi-Fi expansion at a combined speed of up to 1.2Gbps,Operates over both the 2.4GHz band(300Mbps) and 5GHz band(867Mbps) for more stable wireless experience,Intelligent signal light helps to fi­nd the best location for optimal Wi-Fi coverage by showing the signal strength, Works with any Wi-Fi router or wireless access point",
+    specs:"Brings Wi-Fi dead zone to life with strong Wi-Fi expansion at a combined speed of up to 1.2Gbps,Operates over both the 2.4GHz band(300Mbps) and 5GHz band(867Mbps) for more stable wireless experience,Intelligent signal light helps to find the best location for optimal Wi-Fi coverage by showing the signal strength, Works with any Wi-Fi router or wireless access point",
     image: ExtenderImage,
   },
   {
@@ -444,8 +444,8 @@ const sampleProducts = [
     specs:"Superior WiFi 6 Speeds: Delivers dual band speeds of up to 3 Gbps powered by the latest WiFi 6 technology,PoE Powered: : Supports both 802.3at PoE+ and Passive PoE (adapter included) power supply for flexible installation,Centralized Cloud Management: Omada SDN integration manages the whole network locally or from the cloud via web UI or the Omada app.",
     image: TplinkImage,
   },
-   {
-    id: 45,
+  {
+    id: 47, // 💡 Fixed: Changed duplicate ID from 45 to 47
     name: "TP-Link Archer AX12 AX1500 WiFi 6 Router",
     category: "Accessories",
     price: 4800,
@@ -454,25 +454,30 @@ const sampleProducts = [
   },
 ];
 
-// Corrected category array name (Removed hidden leading space and changed to generic 'All-in-One')
+// Changed "HP Printer" to generic "Printers"
 const categories = [
   "All",
   "Laptops",
   "All-in-One",
   "Monitors",
   "Headphones",
-  "HP Printer",
+  "Printers", // 💡 Uniform clean name
   "Phones",
   "Accessories",
 ];
 
-const Home = ({ onSelectProduct }) => {
-  const [activeCategory, setActiveCategory] = useState("All");
+// 💡 Wired up search and global navigation variables passing down from App.jsx state values
+const Home = ({ onSelectProduct, currentCategory = "All", onCategoryChange, searchQuery = "" }) => {
 
-  const filteredProducts =
-    activeCategory === "All"
-      ? sampleProducts
-      : sampleProducts.filter((product) => product.category === activeCategory);
+  // Sequential filter array tracking category types and text search strings together
+  const filteredProducts = sampleProducts.filter((product) => {
+    const matchesCategory = currentCategory === "All" || product.category === currentCategory;
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.specs.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className={styles.homeContainer}>
@@ -488,8 +493,8 @@ const Home = ({ onSelectProduct }) => {
             {categories.map((cat) => (
               <li key={cat}>
                 <button
-                  className={activeCategory === cat ? styles.activeTab : ""}
-                  onClick={() => setActiveCategory(cat)}
+                  className={currentCategory === cat ? styles.activeTab : ""}
+                  onClick={() => onCategoryChange && onCategoryChange(cat)}
                 >
                   {cat}
                 </button>
@@ -499,19 +504,24 @@ const Home = ({ onSelectProduct }) => {
         </aside>
 
         <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>{activeCategory} Products</h2>
+          <h2 className={styles.sectionTitle}>{currentCategory} Products</h2>
 
-          {/* Updated grid layout wrapper matching equal columns */}
           <div className={styles.productGrid}>
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                onClick={() => onSelectProduct(product)}
-                className={styles.gridItemWrapper}
-              >
-                <ProductCard product={product} />
-              </div>
-            ))}
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  onClick={() => onSelectProduct(product)}
+                  className={styles.gridItemWrapper}
+                >
+                  <ProductCard product={product} />
+                </div>
+              ))
+            ) : (
+              <p style={{ gridColumn: "1/-1", textAlign: "center", padding: "40px 0", color: "#666" }}>
+                No items found matching your request.
+              </p>
+            )}
           </div>
         </section>
       </div>
