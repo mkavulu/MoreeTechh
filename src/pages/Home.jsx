@@ -25,6 +25,8 @@ import HPPrinterImage from "../assets/hp Printer.jpg";
 import epsonPrinterImage from "../assets/l3250-epson.jpg";
 import epsonPrinter1Image from "../assets/Canon PIXMA G3420.jpeg";
 import epsonPrinter2Image from "../assets/Epson-ecotank-l3150.jpg";
+import kyoseraPrinterImage from "../assets/kyocera-ecosys-fs-1025-mfp.jpg";
+import kyoseraPrinter1Image from "../assets/kyocera_MA2000w.jpeg";
 import HpEliteBookImage from "../assets/Hp-EliteBook.jpg";
 import HPPoBookImage from "../assets/Hp-ProBook 430 G7.jpeg";
 import HpProbookBookImage from "../assets/Hp-Probook 640.jpg";
@@ -534,6 +536,24 @@ const sampleProducts = [
     oldPrice: 35000,
     specs: "Epson EcoTank L3150 Wi-Fi All-in-One Ink Tank Printer",
     image: epsonPrinter2Image,
+  },
+  {
+    id: 56,
+    name: "Kyocera Ecosys FS-1025 MFP",
+    category: "Printers",
+    price: 45000,
+    oldPrice: 50000,
+    specs: "Kyocera Ecosys FS-1025 MFP",
+    image: kyoseraPrinterImage,
+  },
+   {
+    id: 57,
+    name: "Kyocera Ecosys MA2000w",
+    category: "Printers",
+    price: 42000,
+    oldPrice: 47000,
+    specs: "Kyocera Ecosys MA2000w",
+    image: kyoseraPrinter1Image,
   },
 ];
 
