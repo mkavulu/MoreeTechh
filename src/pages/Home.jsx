@@ -27,6 +27,7 @@ import epsonPrinter1Image from "../assets/Canon PIXMA G3420.jpeg";
 import epsonPrinter2Image from "../assets/Epson-ecotank-l3150.jpg";
 import kyoseraPrinterImage from "../assets/kyocera-ecosys-fs-1025-mfp.jpg";
 import kyoseraPrinter1Image from "../assets/kyocera_MA2000w.jpeg";
+import kyoseraPrinter2Image from "../assets/kyocera-ecosys-MA4000WIFX.jpg";
 import HpEliteBookImage from "../assets/Hp-EliteBook.jpg";
 import HPPoBookImage from "../assets/Hp-ProBook 430 G7.jpeg";
 import HpProbookBookImage from "../assets/Hp-Probook 640.jpg";
@@ -554,6 +555,15 @@ const sampleProducts = [
     oldPrice: 47000,
     specs: "Kyocera Ecosys MA2000w",
     image: kyoseraPrinter1Image,
+  },
+   {
+    id: 58,
+    name: "Kyocera Ecosys MA4000WIFX Printer",
+    category: "Printers",
+    price: 42000,
+    oldPrice: 47000,
+    specs: "Kyocera Ecosys MA4000WIFX Printer",
+    image: kyoseraPrinter2Image,
   },
 ];
 
