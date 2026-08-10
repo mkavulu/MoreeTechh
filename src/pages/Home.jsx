@@ -23,6 +23,8 @@ import Logitech3Image from "../assets/Logitech-H600-2.jpg";
 import Logitech4Image from "../assets/Logitech H540.jpg";
 import HPPrinterImage from "../assets/hp Printer.jpg";
 import epsonPrinterImage from "../assets/l3250-epson.jpg";
+import epsonPrinter1Image from "../assets/Canon PIXMA G3420.jpeg";
+import epsonPrinter2Image from "../assets/Epson-ecotank-l3150.jpg";
 import HpEliteBookImage from "../assets/Hp-EliteBook.jpg";
 import HPPoBookImage from "../assets/Hp-ProBook 430 G7.jpeg";
 import HpProbookBookImage from "../assets/Hp-Probook 640.jpg";
@@ -514,6 +516,24 @@ const sampleProducts = [
     specs:
       "TP-Link Archer AX12 AX1500 WiFi 6 Router, Dual Band, WPA3, Up to 1201Mbps, Black, Model AX12",
     image: Tplink1Image,
+  },
+   {
+    id: 54,
+    name: "Canon PIXMA G3420 Wi-Fi All-in-One Ink Tank Printer",
+    category: "Printers",
+    price: 32000,
+    oldPrice: 33000,
+    specs: "Canon PIXMA G3420 Wi-Fi All-in-One Ink Tank Printer",
+    image: epsonPrinter1Image,
+  },
+  {
+    id: 55,
+    name: "Epson EcoTank L3150 Wi-Fi All-in-One Ink Tank Printer",
+    category: "Printers",
+    price: 32000,
+    oldPrice: 35000,
+    specs: "Epson EcoTank L3150 Wi-Fi All-in-One Ink Tank Printer",
+    image: epsonPrinter2Image,
   },
 ];
 
