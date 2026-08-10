@@ -506,6 +506,15 @@ const sampleProducts = [
     specs: "SAMSUNG S26 ULTRA 12/256 GB ",
     image: Phone5Image,
   },
+  {
+    id: 53,
+    name: "TP-Link Archer AX12 AX1500 WiFi 6 Router",
+    category: "Networking Equipment",
+    price: 4800,
+    specs:
+      "TP-Link Archer AX12 AX1500 WiFi 6 Router, Dual Band, WPA3, Up to 1201Mbps, Black, Model AX12",
+    image: Tplink1Image,
+  },
 ];
 
 // Available categories for the sidebar
@@ -527,16 +536,26 @@ const Home = ({
   onCategoryChange,
   searchQuery = "",
 }) => {
-  // Clean, unified filtering logic
+  // Enhanced filtering logic: includes category in text searches & bypasses sidebar filter during search
   const filteredProducts = sampleProducts.filter((product) => {
+    const query = searchQuery.toLowerCase().trim();
+
+    // 1. Check if query matches product name, specs, or category
+    const matchesSearch =
+      product.name.toLowerCase().includes(query) ||
+      product.specs.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query);
+
+    // 2. If the user is actively searching, search globally across all products
+    if (query !== "") {
+      return matchesSearch;
+    }
+
+    // 3. If no search query, filter strictly by selected category tab
     const matchesCategory =
       currentCategory === "All" || product.category === currentCategory;
 
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.specs.toLowerCase().includes(searchQuery.toLowerCase());
-
-    return matchesCategory && matchesSearch;
+    return matchesCategory;
   });
 
   return (
@@ -545,7 +564,7 @@ const Home = ({
         <h1>Upgrade Your Tech Workspace</h1>
         <p>Get the best deals on genuine laptops and accessories in Kenya.</p>
 
-        {/*  Download Buttons Container */}
+        {/* Download Buttons Container */}
         <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "15px" }}>
           <a
             href={androidPriceListPdf}
@@ -584,7 +603,7 @@ const Home = ({
               boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
             }}
           >
-             Download Apple Price List (PDF)
+            Download Apple Price List (PDF)
           </a>
         </div>
       </div>
@@ -607,7 +626,9 @@ const Home = ({
         </aside>
 
         <section className={styles.contentSection}>
-          <h2 className={styles.sectionTitle}>{currentCategory} Products</h2>
+          <h2 className={styles.sectionTitle}>
+            {searchQuery ? `Search Results for "${searchQuery}"` : `${currentCategory} Products`}
+          </h2>
 
           <div className={styles.productGrid}>
             {filteredProducts.length > 0 ? (

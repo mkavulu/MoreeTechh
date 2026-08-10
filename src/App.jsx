@@ -12,6 +12,8 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeInfoPage, setActiveInfoPage] = useState(null); 
   const [currentCategory, setCurrentCategory] = useState('All'); 
+  // 1. ADD SEARCH QUERY STATE
+  const [searchQuery, setSearchQuery] = useState(''); 
 
   // Reset scroll position on view/category change
   useEffect(() => {
@@ -24,6 +26,7 @@ function App() {
     setActiveInfoPage(null);
     setSelectedProduct(null);
     setCurrentCategory('All');
+    setSearchQuery(''); // Reset search on home reset
   };
 
   // Open policy info pages (Terms, Privacy, Warranty)
@@ -59,11 +62,13 @@ function App() {
       );
     }
 
+    // 2. PASS searchQuery PROP TO HOME
     return (
       <Home 
         onSelectProduct={setSelectedProduct} 
         currentCategory={currentCategory} 
         onCategoryChange={handleCategoryChange}
+        searchQuery={searchQuery}
       />
     );
   };
@@ -75,7 +80,12 @@ function App() {
 
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           
-          <Navbar onResetHome={handleResetToHomeStorefront} />
+          {/* 3. PASS searchQuery AND setSearchQuery TO NAVBAR */}
+          <Navbar 
+            onResetHome={handleResetToHomeStorefront} 
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+          />
           
           <main style={{ flexGrow: 1 }}>
             <Routes>
