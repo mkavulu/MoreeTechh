@@ -2,6 +2,9 @@ import React from "react";
 import ProductCard from "../components/ProductCard";
 import styles from "./Home.module.css";
 
+// 📄 Import your price list PDF here
+import priceListPdf from "../assets/ANDROID PRICELIST.pdf"; // Update path as needed
+
 // Import local images
 import hpImage from "../assets/hp-probook.jpeg";
 import lenovoImage from "../assets/thinkpad-e14.jpeg";
@@ -37,6 +40,10 @@ import Iphonepro6Image from "../assets/IPHONE 17 PRO MAX 256GB - DUOS Physical A
 import Iphonepro7Image from "../assets/IPHONE 16 PRO MAX 256GB - NON-ACTIVE.jpeg";
 import Iphonepro8Image from "../assets/iphone-16-pro-black.jpeg";
 import Iphonepro9Image from "../assets/IPHONE 16 PRO MAX 512GB -NON-ACTIVE.jpeg";
+import Phone1Image from "../assets/Sumsung_Z_Fold.jpeg";
+import Phone2Image from "../assets/Sumsung_Z_Fold.jpeg";
+import Phone3Image from "../assets/Sumsung_Z6_Fold.jpeg";
+import Phone4Image from "../assets/Sumsung_Z6_Fold.jpeg";
 import MouseImage from "../assets/Logitech Pebble M350.jpeg";
 import Mouse1Image from "../assets/Logitech MX Master 3s.jpeg";
 import Mouse2Image from "../assets/Logitech MX Master 4.jpg";
@@ -337,6 +344,14 @@ const sampleProducts = [
   },
   {
     id: 34,
+    name: "SAMSUNG Z FOLD 7  Brand New",
+    category: "Phones",
+    price: 210000,
+    specs: "SAMSUNG Z FOLD 7 12/1TB ",
+    image: Phone1Image,
+  },
+  {
+    id: 35,
     name: "IPHONE 16 PRO MAX 512GB Brand New",
     category: "Phones",
     price: 182000,
@@ -344,7 +359,7 @@ const sampleProducts = [
     image: Iphonepro9Image,
   },
   {
-    id: 35,
+    id: 36,
     name: "HP LaserJet Pro Multifunction M479fdw Wireless Printer",
     category: "Printers",
     price: 125900,
@@ -354,7 +369,7 @@ const sampleProducts = [
     image: HPPrinterImage,
   },
   {
-    id: 36,
+    id: 37,
     name: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
     category: "Printers",
     price: 26500,
@@ -363,7 +378,7 @@ const sampleProducts = [
     image: epsonPrinterImage,
   },
   {
-    id: 37,
+    id: 38,
     name: "Logitech Pebble M350 Wireless Mouse",
     category: "Accessories",
     price: 3850,
@@ -371,7 +386,7 @@ const sampleProducts = [
     image: MouseImage,
   },
   {
-    id: 38,
+    id: 39,
     name: "Logitech MX Master 3S Mouse Wireless with Hyper-fast Scroll",
     category: "Accessories",
     price: 15599,
@@ -380,7 +395,7 @@ const sampleProducts = [
     image: Mouse1Image,
   },
   {
-    id: 39,
+    id: 40,
     name: "Logitech MX Master 4 Ergonomic Wireless Mouse | Graphite",
     category: "Accessories",
     price: 17560,
@@ -389,7 +404,7 @@ const sampleProducts = [
     image: Mouse2Image,
   },
   {
-    id: 40,
+    id: 41,
     name: "Logitech M170 Wireless Mouse",
     category: "Accessories",
     price: 1800,
@@ -397,7 +412,7 @@ const sampleProducts = [
     image: Mouse3Image,
   },
   {
-    id: 41,
+    id: 422,
     name: "HP W10 Rechargeable Bluetooth & Wireless",
     category: "Accessories",
     price: 599,
@@ -405,7 +420,7 @@ const sampleProducts = [
     image: Mouse4Image,
   },
   {
-    id: 42,
+    id: 43,
     name: "Logitech MK220 Wireless Keyboard and Mouse Combo",
     category: "Accessories",
     price: 4850,
@@ -413,7 +428,7 @@ const sampleProducts = [
     image: KeyboardImage,
   },
   {
-    id: 43,
+    id: 44,
     name: "USB wired keyboard 104keys mechanical LED backlit rainbow gaming keyboard",
     category: "Accessories",
     price: 2950,
@@ -422,7 +437,7 @@ const sampleProducts = [
     image: Keyboard2Image,
   },
   {
-    id: 44,
+    id: 45,
     name: "TP-Link AC1200 Wireless N Wall Plugged Range Extender - TL-RE305",
     category: "Networking Equipment",
     price: 7200,
@@ -431,7 +446,7 @@ const sampleProducts = [
     image: ExtenderImage,
   },
   {
-    id: 45,
+    id: 46,
     name: "TP Link TL-RE200 AC750 Mesh Dual band",
     category: "Networking Equipment",
     price: 4800,
@@ -440,7 +455,7 @@ const sampleProducts = [
     image: Extender2Image,
   },
   {
-    id: 46,
+    id: 47,
     name: "TP-Link EAP650 AX3000 Indoor/Outdoor WiFi 6 Access Point",
     category: "Networking Equipment",
     price: 27500,
@@ -449,13 +464,37 @@ const sampleProducts = [
     image: TplinkImage,
   },
   {
-    id: 47,
+    id: 48,
     name: "TP-Link Archer AX12 AX1500 WiFi 6 Router",
     category: "Networking Equipment",
     price: 4800,
     specs:
       "TP-Link Archer AX12 AX1500 WiFi 6 Router, Dual Band, WPA3, Up to 1201Mbps, Black, Model AX12",
     image: Tplink1Image,
+  },
+  {
+    id: 49,
+    name: "SAMSUNG Z FOLD 7  Brand New",
+    category: "Phones",
+    price: 194000,
+    specs: "SAMSUNG Z FOLD 7 12/512GB ",
+    image: Phone2Image,
+  },
+  {
+    id: 50,
+    name: "SAMSUNG Z FOLD 6  Brand New",
+    category: "Phones",
+    price: 125000,
+    specs: "SAMSUNG Z FOLD 7 12/1TB ",
+    image: Phone3Image,
+  },
+  {
+    id: 51,
+    name: "SAMSUNG Z FOLD 6  Brand New",
+    category: "Phones",
+    price: 123000,
+    specs: "SAMSUNG Z FOLD 7 12/512GB ",
+    image: Phone4Image,
   },
 ];
 
@@ -495,6 +534,28 @@ const Home = ({
       <div className={styles.heroBanner}>
         <h1>Upgrade Your Tech Workspace</h1>
         <p>Get the best deals on genuine laptops and accessories in Kenya.</p>
+        
+        {/*  Price List Download Button */}
+        <a
+          href={priceListPdf}
+          download="Product_Price_List.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            marginTop: "15px",
+            padding: "10px 20px",
+            backgroundColor: "#28a745",
+            color: "#ffffff",
+            textDecoration: "none",
+            borderRadius: "5px",
+            fontWeight: "bold",
+            fontSize: "14px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
+          }}
+        >
+        Download Full Adroid Price List (PDF)
+        </a>
       </div>
 
       <div className={styles.mainLayout}>
