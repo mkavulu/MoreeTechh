@@ -11,30 +11,35 @@ import { CartProvider } from './context/CartContext';
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeInfoPage, setActiveInfoPage] = useState(null); 
-  
-  // State: Holds the active category selected via footer links or home buttons
-  const [activeCategory, setActiveCategory] = useState('All'); 
+  const [currentCategory, setCurrentCategory] = useState('All'); 
 
-  // Combined listener to instantly fix scroll positions during interface state mutations
+  // Reset scroll position on view/category change
   useEffect(() => {
     window.scrollTo(0, 0);
     if (document.documentElement) document.documentElement.scrollTop = 0;
-  }, [selectedProduct, activeInfoPage, activeCategory]); 
+  }, [selectedProduct, activeInfoPage, currentCategory]); 
 
-  // 💡 Global reset sequence helper function when clicking the MoreeTech logo
+  // Reset to initial storefront view (Logo or Home click)
   const handleResetToHomeStorefront = () => {
-    setActiveInfoPage(null);     // Close any open policy pages
-    setSelectedProduct(null);    // Close any open product detail views
-    setActiveCategory('All');    // Reset the store filter list back to 'All' products
+    setActiveInfoPage(null);
+    setSelectedProduct(null);
+    setCurrentCategory('All');
   };
 
-  // Helper function to handle category clicks from the footer
-  const handleFooterCategorySelect = (category) => {
-    setActiveInfoPage(null);    // Close info sheets if open
-    setSelectedProduct(null);   // Close details screen if open
-    setActiveCategory(category); // Apply filter string directly
+  // Open policy info pages (Terms, Privacy, Warranty)
+  const handleInfoSelect = (policyType) => {
+    setSelectedProduct(null);
+    setActiveInfoPage(policyType);
   };
 
+  // Switch category filters from Sidebar or Footer
+  const handleCategoryChange = (category) => {
+    setActiveInfoPage(null);
+    setSelectedProduct(null);
+    setCurrentCategory(category);
+  };
+
+  // Render main content dynamically based on active state
   const renderMainContent = () => {
     if (activeInfoPage) {
       return (
@@ -54,12 +59,11 @@ function App() {
       );
     }
 
-    // Pass the selected category state value down to your Home component dashboard
     return (
       <Home 
         onSelectProduct={setSelectedProduct} 
-        currentCategory={activeCategory} 
-        onCategoryChange={setActiveCategory}
+        currentCategory={currentCategory} 
+        onCategoryChange={handleCategoryChange}
       />
     );
   };
@@ -71,7 +75,6 @@ function App() {
 
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           
-          {/* 💡 Pass the reset handler cleanly to your Navbar component */}
           <Navbar onResetHome={handleResetToHomeStorefront} />
           
           <main style={{ flexGrow: 1 }}>
@@ -80,10 +83,9 @@ function App() {
             </Routes>
           </main>
           
-          {/* Pass down both state controllers cleanly here */}
           <Footer 
-            onSelectInfo={setActiveInfoPage} 
-            onSelectCategory={handleFooterCategorySelect} 
+            onInfoClick={handleInfoSelect} 
+            onCategoryChange={handleCategoryChange} 
           /> 
           
         </div>

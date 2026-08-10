@@ -346,7 +346,7 @@ const sampleProducts = [
   {
     id: 35,
     name: "HP LaserJet Pro Multifunction M479fdw Wireless Printer",
-    category: "Printers", // 💡 Changed to match the uniform category
+    category: "Printers",
     price: 125900,
     oldPrice: 135000,
     specs:
@@ -356,7 +356,7 @@ const sampleProducts = [
   {
     id: 36,
     name: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
-    category: "Printers", // 💡 Changed to match the uniform category
+    category: "Printers",
     price: 26500,
     oldPrice: 28000,
     specs: "Epson EcoTank L3250 A4 Wi-Fi All-in-One Ink Tank Printer",
@@ -417,65 +417,76 @@ const sampleProducts = [
     name: "USB wired keyboard 104keys mechanical LED backlit rainbow gaming keyboard",
     category: "Accessories",
     price: 2950,
-    specs:"USB wired keyboard 104keys mechanical LED backlit rainbow gaming keyboard for PC computer laptop",
+    specs:
+      "USB wired keyboard 104keys mechanical LED backlit rainbow gaming keyboard for PC computer laptop",
     image: Keyboard2Image,
   },
   {
     id: 44,
     name: "TP-Link AC1200 Wireless N Wall Plugged Range Extender - TL-RE305",
-    category: "Accessories",
+    category: "Networking Equipment",
     price: 7200,
-    specs:"Brings Wi-Fi dead zone to life with strong Wi-Fi expansion at a combined speed of up to 1.2Gbps,Operates over both the 2.4GHz band(300Mbps) and 5GHz band(867Mbps) for more stable wireless experience,Intelligent signal light helps to find the best location for optimal Wi-Fi coverage by showing the signal strength, Works with any Wi-Fi router or wireless access point",
+    specs:
+      "Brings Wi-Fi dead zone to life with strong Wi-Fi expansion at a combined speed of up to 1.2Gbps,Operates over both the 2.4GHz band(300Mbps) and 5GHz band(867Mbps) for more stable wireless experience,Intelligent signal light helps to find the best location for optimal Wi-Fi coverage by showing the signal strength, Works with any Wi-Fi router or wireless access point",
     image: ExtenderImage,
   },
   {
     id: 45,
     name: "TP Link TL-RE200 AC750 Mesh Dual band",
-    category: "Accessories",
+    category: "Networking Equipment",
     price: 4800,
-    specs:"Boosts wireless signal to previously unreachable or hard-to-wire areas flawlessly, Creates a Mesh network by connecting to a TP-Link OneMesh™ router for seamless whole-home coverage, Compatible with 802.11 b/g/n and 802.11ac Wi-Fi devices",
+    specs:
+      "Boosts wireless signal to previously unreachable or hard-to-wire areas flawlessly, Creates a Mesh network by connecting to a TP-Link OneMesh™ router for seamless whole-home coverage, Compatible with 802.11 b/g/n and 802.11ac Wi-Fi devices",
     image: Extender2Image,
   },
   {
     id: 46,
     name: "TP-Link EAP650 AX3000 Indoor/Outdoor WiFi 6 Access Point",
-    category: "Accessories",
+    category: "Networking Equipment",
     price: 27500,
-    specs:"Superior WiFi 6 Speeds: Delivers dual band speeds of up to 3 Gbps powered by the latest WiFi 6 technology,PoE Powered: : Supports both 802.3at PoE+ and Passive PoE (adapter included) power supply for flexible installation,Centralized Cloud Management: Omada SDN integration manages the whole network locally or from the cloud via web UI or the Omada app.",
+    specs:
+      "Superior WiFi 6 Speeds: Delivers dual band speeds of up to 3 Gbps powered by the latest WiFi 6 technology,PoE Powered: : Supports both 802.3at PoE+ and Passive PoE (adapter included) power supply for flexible installation,Centralized Cloud Management: Omada SDN integration manages the whole network locally or from the cloud via web UI or the Omada app.",
     image: TplinkImage,
   },
   {
-    id: 47, // 💡 Fixed: Changed duplicate ID from 45 to 47
+    id: 47,
     name: "TP-Link Archer AX12 AX1500 WiFi 6 Router",
-    category: "Accessories",
+    category: "Networking Equipment",
     price: 4800,
-    specs:"TP-Link Archer AX12 AX1500 WiFi 6 Router, Dual Band, WPA3, Up to 1201Mbps, Black, Model AX12",
+    specs:
+      "TP-Link Archer AX12 AX1500 WiFi 6 Router, Dual Band, WPA3, Up to 1201Mbps, Black, Model AX12",
     image: Tplink1Image,
   },
 ];
 
-// Changed "HP Printer" to generic "Printers"
+// Available categories for the sidebar
 const categories = [
   "All",
   "Laptops",
   "All-in-One",
   "Monitors",
   "Headphones",
-  "Printers", // 💡 Uniform clean name
+  "Printers",
   "Phones",
   "Accessories",
+  "Networking Equipment",
 ];
 
-// 💡 Wired up search and global navigation variables passing down from App.jsx state values
-const Home = ({ onSelectProduct, currentCategory = "All", onCategoryChange, searchQuery = "" }) => {
-
-  // Sequential filter array tracking category types and text search strings together
+const Home = ({
+  onSelectProduct,
+  currentCategory = "All",
+  onCategoryChange,
+  searchQuery = "",
+}) => {
+  // Clean, unified filtering logic
   const filteredProducts = sampleProducts.filter((product) => {
-    const matchesCategory = currentCategory === "All" || product.category === currentCategory;
+    const matchesCategory =
+      currentCategory === "All" || product.category === currentCategory;
+
     const matchesSearch =
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.specs.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     return matchesCategory && matchesSearch;
   });
 
@@ -518,7 +529,14 @@ const Home = ({ onSelectProduct, currentCategory = "All", onCategoryChange, sear
                 </div>
               ))
             ) : (
-              <p style={{ gridColumn: "1/-1", textAlign: "center", padding: "40px 0", color: "#666" }}>
+              <p
+                style={{
+                  gridColumn: "1/-1",
+                  textAlign: "center",
+                  padding: "40px 0",
+                  color: "#666",
+                }}
+              >
                 No items found matching your request.
               </p>
             )}
