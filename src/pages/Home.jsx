@@ -2,8 +2,9 @@ import React from "react";
 import ProductCard from "../components/ProductCard";
 import styles from "./Home.module.css";
 
-// 📄 Import your price list PDF here
-import priceListPdf from "../assets/ANDROID PRICELIST.pdf"; // Update path as needed
+// 📄 Import your price list PDFs with unique variable names
+import androidPriceListPdf from "../assets/ANDROID PRICELIST.pdf";
+import applePriceListPdf from "../assets/APPLE PRICELIST .pdf";
 
 // Import local images
 import hpImage from "../assets/hp-probook.jpeg";
@@ -44,6 +45,7 @@ import Phone1Image from "../assets/Sumsung_Z_Fold.jpeg";
 import Phone2Image from "../assets/Sumsung_Z_Fold.jpeg";
 import Phone3Image from "../assets/Sumsung_Z6_Fold.jpeg";
 import Phone4Image from "../assets/Sumsung_Z6_Fold.jpeg";
+import Phone5Image from "../assets/sm_galaxys26ultra.jpg";
 import MouseImage from "../assets/Logitech Pebble M350.jpeg";
 import Mouse1Image from "../assets/Logitech MX Master 3s.jpeg";
 import Mouse2Image from "../assets/Logitech MX Master 4.jpg";
@@ -496,6 +498,14 @@ const sampleProducts = [
     specs: "SAMSUNG Z FOLD 7 12/512GB ",
     image: Phone4Image,
   },
+  {
+    id: 52,
+    name: "SAMSUNG S26 ULTRA  AFRICA",
+    category: "Phones",
+    price: 147000,
+    specs: "SAMSUNG S26 ULTRA 12/256 GB ",
+    image: Phone5Image,
+  },
 ];
 
 // Available categories for the sidebar
@@ -534,28 +544,49 @@ const Home = ({
       <div className={styles.heroBanner}>
         <h1>Upgrade Your Tech Workspace</h1>
         <p>Get the best deals on genuine laptops and accessories in Kenya.</p>
-        
-        {/*  Price List Download Button */}
-        <a
-          href={priceListPdf}
-          download="Product_Price_List.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-block",
-            marginTop: "15px",
-            padding: "10px 20px",
-            backgroundColor: "#28a745",
-            color: "#ffffff",
-            textDecoration: "none",
-            borderRadius: "5px",
-            fontWeight: "bold",
-            fontSize: "14px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
-          }}
-        >
-        Download Full Adroid Price List (PDF)
-        </a>
+
+        {/*  Download Buttons Container */}
+        <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginTop: "15px" }}>
+          <a
+            href={androidPriceListPdf}
+            download="Android_Price_List.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              padding: "10px 20px",
+              backgroundColor: "#28a745",
+              color: "#ffffff",
+              textDecoration: "none",
+              borderRadius: "5px",
+              fontWeight: "bold",
+              fontSize: "14px",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            }}
+          >
+            Download Android Price List (PDF)
+          </a>
+
+          <a
+            href={applePriceListPdf}
+            download="Apple_Price_List.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "#ffffff",
+              textDecoration: "none",
+              borderRadius: "5px",
+              fontWeight: "bold",
+              fontSize: "14px",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            }}
+          >
+             Download Apple Price List (PDF)
+          </a>
+        </div>
       </div>
 
       <div className={styles.mainLayout}>
