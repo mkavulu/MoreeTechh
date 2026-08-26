@@ -8,6 +8,27 @@ import applePriceListPdf from "../assets/APPLE PRICELIST .pdf";
 
 // Import local images
 import hpImage from "../assets/hp-probook.jpeg";
+import hpImage2 from "../assets/Hp-ZBook-14.jpg";
+import hpImage3 from "../assets/Hp-ZBook-15.jpg";
+import hpImage4 from "../assets/Hp-Refubished-ZBook-14.jpg";
+import hpImage5 from "../assets/HP EliteBook 1040 G8.jpg";
+import hpImage6 from "../assets/hp-elitebook-x360-1030-g7.jpg";
+import hpImage7 from "../assets/HP-Elitebook-840-G8.png";
+import hpImage8 from "../assets/HP EliteBook 830 G8.jpg";
+import hpImage9 from "../assets/Hp EliteBook 830 G7 X360.jpeg";
+import hpImage10 from "../assets/EliteBook 830 G7.jpeg";
+import hpImage11 from "../assets/HP-EliteBook-830-G6-Intel-Core-i5.jpg";
+import hpImage12 from "../assets/hp-elitebook-845-g8-amd-ryzen-7.jpg";
+import hpImage13 from "../assets/EliteBook 845 G8 Rayzen 5.jpeg";
+import hpImage14 from "../assets/EliteBook 1040 G8 Core i7, 11th Gen.jpg";
+import hpImage15 from "../assets/HP ZBOOK 14 G7.jpeg";
+import LenovoImage16 from "../assets/ThinkPad X1 Carbon.jpg";
+import LenovoImage17 from "../assets/ThinkPad X1 Carbon 8th Gen.jpg";
+import LenovoImage18 from "../assets/Lenovo ThinkPad X13 Yoga.jpeg";
+import LenovoImage19 from "../assets/Lenovo ThinkPad T490s Core i7.jpg";
+import LenovoImage20 from "../assets/ThinkPad Yoga X380.jpg";
+import MacbookImage21 from "../assets/MacBook 2020.png";
+import MacbookImage22 from "../assets/MacBook 2019.jpeg";
 import lenovoImage from "../assets/thinkpad-e14.jpeg";
 import AllinOneImage from "../assets/All-In-One.jpg";
 import AllinOneImage1 from "../assets/Hp EliteOne 800 G3.jpg";
@@ -564,6 +585,199 @@ const sampleProducts = [
     oldPrice: 47000,
     specs: "Kyocera Ecosys MA4000WIFX Printer",
     image: kyoseraPrinter2Image,
+  },
+  {
+    id: 59,
+    name: "HP ZBook Firefly 14 G8",
+    category: "Laptops",
+    price: 61500,
+    oldPrice: 65000,
+    specs:'HP ZBook Firefly 14 G8 Core i7 11th Gen 32GB RAM 512GB SSD 4GB NVIDIA T500 Graphics Non-Touch ',
+    image: hpImage2,
+  },
+  {
+    id: 60,
+    name: "HP ZBook Power G7",
+    category: "Laptops",
+    price: 62500,
+    oldPrice: 65500,
+    specs:'HP ZBook Power G7  Core i7-10850H  32GB RAM  512GB SSD  Quadro P1000 4GB Graphics ',
+    image: hpImage3,
+  },
+  {
+    id: 61,
+    name: "HP14 Refurbished Z book",
+    category: "Laptops",
+    price: 60500,
+    oldPrice: 63500,
+    specs:'HP Refurbished Z book 14 G7 Core i7 10th gen 32gb ram 512ssd 14Inches FHD Mobile workstation ',
+    image: hpImage4,
+  },
+  {
+    id: 62,
+    name: "HP EliteBook x360 1040 G8",
+    category: "Laptops",
+    price: 59500,
+    oldPrice: 62500,
+    specs:'HP EliteBook 1040 G8 x360 Intel Core i7 11th Gen 32GB Ram 512GB SSD Windows 11 Pro Touchscreen ',
+    image: hpImage5,
+  },
+   {
+    id: 63,
+    name: "HP EliteBook x360 1030 G7",
+    category: "Laptops",
+    price: 42500,
+    oldPrice: 45500,
+    specs:' HP EliteBook x360 1030 G7 is a 13.3-inch 360-degree 2-in-1 running on 10th-generation Intel Core processors with up to 32GB of RAM and 2TB of SSD storage. It weighs 1.21kg.',
+    image: hpImage6,
+  },
+  {
+    id: 64,
+    name: "HP Elitebook 840 G8",
+    category: "Laptops",
+    price: 44500,
+    oldPrice: 46500,
+    specs:'HP Elitebook 840 G8, Intel Core i7-1065G7, 16GB RAM, 512GB SSD, Win 11 Pro, 14″ FHD Display ',
+    image: hpImage7,
+  },
+  {
+    id: 65,
+    name: "HP EliteBook 830 G8",
+    category: "Laptops",
+    price: 43500,
+    oldPrice: 45500,
+    specs:'The HP EliteBook 830 G8 is a premium business-class laptop designed for professionals who value performance, security, and portability. Powered by an 11th Gen Intel Core i7 processor, it delivers exceptional speed for multitasking, meetings, and productivity. With 16GB of DDR4 RAM and a 512GB SSD, this laptop ensures fast boot times, seamless app performance, and ample storage for your work files. ',
+    image: hpImage8,
+  },
+  {
+    id: 66,
+    name: "HP EliteBook 830 G7",
+    category: "Laptops",
+    price: 45000,
+    oldPrice: 47500,
+    specs:'HP EliteBook 830 G7 Core i7 10th Gen x360 16GB RAM 512GB SSD Touchscreen ',
+    image: hpImage9,
+  },
+  {
+    id: 67,
+    name: "EliteBook 830 G7",
+    category: "Laptops",
+    price: 32500,
+    oldPrice: 35500,
+    specs:'EliteBook 830 G7  Core i5, 8GB RAM, 256GB SSD, Non-x360 Touch',
+    image: hpImage10,
+  },
+  {
+    id: 68,
+    name: "HP EliteBook x360 830 G6",
+    category: "Laptops",
+    price: 35500,
+    oldPrice: 37500,
+    specs:'HP EliteBook x360 830 G6, 2 in 1 laptop Core i7-8665U, 16GB RAM 512GB SSD, 13.3″ Touchscreen',
+    image: hpImage11,
+  },
+    {
+    id: 68,
+    name: "HP EliteBook 845 G8 AMD Ryzen 7 Pro",
+    category: "Laptops",
+    price: 35500,
+    oldPrice: 37500,
+    specs:'HP EliteBook 845 G8 AMD Ryzen 7 Pro 8GB RAM/256GB SSD',
+    image: hpImage12,
+  },
+  {
+    id: 69,
+    name: "HP EliteBook 845 G8 AMD Ryzen 5 Pro",
+    category: "Laptops",
+    price: 33500,
+    oldPrice: 36500,
+    specs:'HP EliteBook 845 G8 AMD Ryzen 5 Laptop 8GB RAM 256GB SSD',
+    image: hpImage13,
+  },
+    {
+    id: 70,
+    name: "HP ELITEBOOK 1040 G8 corei7 11th gen",
+    category: "Laptops",
+    price: 59500,
+    oldPrice: 63500,
+    specs:'HP ELITEBOOK 1040 G8 corei7 11th gen 32GB RAM 512GB SSD x360 touch',
+    image: hpImage14,
+  },
+  {
+    id: 71,
+    name: "HP Zbook 14 G7",
+    category: "Laptops",
+    price: 57500,
+    oldPrice: 59500,
+    specs:'Zbook 14 G7 Core i7, 10th Gen, 32GB RAM, 512GB SSD, Non-Touch',
+    image: hpImage15,
+  },
+  {
+    id: 72,
+    name: "lenovo ThinkPad X1 Carbon Gen 11",
+    category: "Laptops",
+    price: 48500,
+    oldPrice: 50500,
+    specs:'ThinkPad X1 Carbon* Core i7, 11th Gen, 16GB RAM, 512GB SSD',
+    image: LenovoImage16,
+  },
+   {
+    id: 73,
+    name: "Lenovo ThinkPad X1 Carbon Gen 8",
+    category: "Laptops",
+    price: 34500,
+    oldPrice: 36500,
+    specs:'Lenovo ThinkPad X1 Carbon Gen 8 Laptop 14.0Inches 4K UHD Display, Intel Core i7 10510U, 16GB RAM, 512GB SSD, Wifi+Bluetooth Webcam Fingerprint upto 19.5hr Battery AimCare Sup HDMI Rapid Charge Win 10 Pro',
+    image: LenovoImage17,
+  },
+  {
+    id: 73,
+    name: "ThinkPad X13 Yoga",
+    category: "Laptops",
+    price: 48500,
+    oldPrice: 50500,
+    specs:'ThinkPad X13 Yoga Core i7, 16GB RAM, 512GB SSD',
+    image: LenovoImage18,
+  },
+   {
+    id: 74,
+    name: "Lenovo ThinkPad T490s",
+    category: "Laptops",
+    price: 30500,
+    specs:'Core i7, 16GB RAM, 256GB SSD, Touch & Core i5, 16GB RAM, 256GB SSD, Non-Touch',
+    image: LenovoImage19,
+  },
+  {
+    id: 75,
+    name: "Lenovo ThinkPad T490s",
+    category: "Laptops",
+    price: 26500,
+    specs:' Core i5, 16GB RAM, 256GB SSD, Non-Touch',
+    image: LenovoImage19,
+  },
+  {
+    id: 76,
+    name: "ThinkPad Yoga 380",
+    category: "Laptops",
+    price: 29500,
+    specs:' ThinkPad X380 Yoga, Intel Core i5-8350U, 16GB DDR4, 256 GB SSD',
+    image: LenovoImage20,
+  },
+    {
+    id: 77,
+    name: "Apple MacBook Air 2020",
+    category: "Laptops",
+    price: 51500,
+    specs:' MacBook 2020  Core i5, 16GB/512RAM ',
+    image: MacbookImage21,
+  },
+  {
+    id: 78,
+    name: "Apple MacBook 2019",
+    category: "Laptops",
+    price: 50000,
+    specs:' MacBook 2019 Core i7, 16GB RAM, 512 GB SSD ',
+    image: MacbookImage22,
   },
 ];
 
