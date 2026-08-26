@@ -708,7 +708,7 @@ const sampleProducts = [
     id: 75,
     name: "Apple MacBook Air 2020",
     category: "Laptops",
-    price: 51500,
+    price: 56500,
     specs: "MacBook 2020 Core i5, 16GB/512RAM",
     image: MacbookImage21,
   },
