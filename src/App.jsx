@@ -6,13 +6,13 @@ import ProductDetails from './pages/ProductDetails';
 import InfoPage from './pages/InfoPage'; 
 import Footer from './components/Footer'; 
 import ScrollToTop from './components/ScrollToTop';  
+import WhatsAppButton from './components/WhatsAppButton';
 import { CartProvider } from './context/CartContext'; 
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeInfoPage, setActiveInfoPage] = useState(null); 
   const [currentCategory, setCurrentCategory] = useState('All'); 
-  // 1. ADD SEARCH QUERY STATE
   const [searchQuery, setSearchQuery] = useState(''); 
 
   // Reset scroll position on view/category change
@@ -26,7 +26,7 @@ function App() {
     setActiveInfoPage(null);
     setSelectedProduct(null);
     setCurrentCategory('All');
-    setSearchQuery(''); // Reset search on home reset
+    setSearchQuery('');
   };
 
   // Open policy info pages (Terms, Privacy, Warranty)
@@ -62,7 +62,6 @@ function App() {
       );
     }
 
-    // 2. PASS searchQuery PROP TO HOME
     return (
       <Home 
         onSelectProduct={setSelectedProduct} 
@@ -78,9 +77,8 @@ function App() {
       <Router>
         <ScrollToTop /> 
 
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
           
-          {/* 3. PASS searchQuery AND setSearchQuery TO NAVBAR */}
           <Navbar 
             onResetHome={handleResetToHomeStorefront} 
             searchQuery={searchQuery}
@@ -97,6 +95,9 @@ function App() {
             onInfoClick={handleInfoSelect} 
             onCategoryChange={handleCategoryChange} 
           /> 
+
+          {/* Floating WhatsApp Button */}
+          <WhatsAppButton phoneNumber="254700000000" />
           
         </div>
       </Router>
