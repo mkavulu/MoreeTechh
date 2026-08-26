@@ -40,6 +40,18 @@ import Logitech1Image from "../assets/logitech H340.jpg";
 import Logitech2Image from "../assets/logitech H390.jpg";
 import Logitech3Image from "../assets/Logitech-H600-2.jpg";
 import Logitech4Image from "../assets/Logitech H540.jpg";
+import Image1 from "../assets/VGA to HDMI.jpeg";
+import Image2 from "../assets/Type c to HDMI.jpeg";
+import Image3 from "../assets/USB to VGA.jpg";
+import Image4 from "../assets/Display to HDMI.jpeg";
+import Image5 from "../assets/Type-C to HDMI 5 In 1 Adapter.jpeg";
+import Image6 from "../assets/7 in 1 hubs.jpg";
+import Image7 from "../assets/Type C to HDMI 7 in1 4k.jpg";
+import Image8 from "../assets/Type-C to HDMI 5 In 1 Adapter.jpeg";
+import Image9 from "../assets/Usb -c to HDMI cable 4k.jpg";
+import Image10 from "../assets/Dell Type C Laptop Charger.jpg";
+import Image11 from "../assets/optical vertical mouse wireless rechargeable.jpeg";
+import Image12 from "../assets/Logitech HD Webcam C270 - Black.jpg";
 import HPPrinterImage from "../assets/hp Printer.jpg";
 import epsonPrinterImage from "../assets/l3250-epson.jpg";
 import epsonPrinter1Image from "../assets/Canon PIXMA G3420.jpeg";
@@ -719,6 +731,102 @@ const sampleProducts = [
     price: 50000,
     specs: "MacBook 2019 Core i7, 16GB RAM, 512 GB SSD",
     image: MacbookImage22,
+  },
+  {
+    id: 77,
+    name: "VGA To HDMI Converter",
+    category: "Accessories",
+    price: 1150,
+    specs: "VGA To HDMI Converter Adapter Cable With Audio Output",
+    image: Image1,
+  },
+    {
+    id: 78,
+    name: "Type-C-to-HDMI Adapter",
+    category: "Accessories",
+    price: 2000,
+    specs: "USB C to HDMI Adapter is a compact, practical accessory that allows you to connect devices with a USB Type-C port, such as laptops, tablets, and smartphones, to HDMI-compatible displays.",
+    image: Image2,
+  },
+  {
+    id: 79,
+    name: "USB 3.0 To VGA Converter",
+    category: "Accessories",
+    price: 1150,
+    specs: "USB 3.0 To VGA Female Adapter Converte",
+    image: Image3,
+  },
+  {
+    id: 80,
+    name: "Display port to HDMI Adapter",
+    category: "Accessories",
+    price: 1000,
+    specs: "Upgrade your viewing experience with our DisplayPort to HDMI Adapter. This compact and reliable adapter effortlessly connects DisplayPort-enabled devices to HDMI displays, allowing you to enjoy sharp, high-definition video on your TV, monitor, projector, or other HDMI-compatible screen.",
+    image: Image4,
+  },
+  {
+    id: 81,
+    name: "Type c 5 in1 hub",
+    category: "Accessories",
+    price: 1900,
+    specs: "Type-C to HDMI 5-in-1 Adapter – Versatile Connectivity Made Easy Upgrade your connectivity with the Type-C to HDMI 5-in-1 Adapter, a compact and versatile solution designed to expand the capabilities of your USB Type-C laptop, tablet, or smartphone.",
+    image: Image5,
+  },
+  {
+    id: 82,
+    name: "7 in 1 hub ",
+    category: "Accessories",
+    price: 1900,
+    specs: "7-in-1 Multi-Port USB 3.0 Type-C Hub – Expand Your Connectivity Upgrade your device’s connectivity with the 7-in-1 USB Type-C Hub, a versatile and convenient solution for connecting multiple peripherals through a single Type-C port. Designed for laptops, tablets, and other compatible devices, this compact hub helps you stay connected and organized wherever you work or play.",
+    image: Image6,
+  },
+   {
+    id: 83,
+    name: "Type C to HDMI 7 in1 4k",
+    category: "Accessories",
+    price: 2000,
+    specs: "Support 7 in 1 USB C Hub to 4K HDMI-compatible Type C Adapter OTG Thunderbolt 3 Dock with PD TF SD for Macbook Pro/Air iPad XPS Surface USB3.0 7IN1 HUB",
+    image: Image7,
+  },
+    {
+    id: 84,
+    name: "Type C to HDMI 5 in 1 4k ",
+    category: "Accessories",
+    price: 2200,
+    specs: "5 in 1 Type C to HDTV Adapter, USB C Hub with LAN Port, 4K HDMI Output USB C Adapter Compatible with MacBook Series, Chromebook, Laptop, Mouse, Keyboard, Flash Drive, Hard Disk",
+    image: Image8,
+  },
+   {
+    id: 85,
+    name: "TYPE-C To HDMI Cable",
+    category: "Accessories",
+    price: 1700,
+    specs: "USB Type-C to HDMI Cable – 4K HD Compatible Experience high-quality visuals with the USB Type-C to HDMI Cable, designed to connect compatible Type-C devices directly to HDMI-enabled TVs, monitors, projectors, and other displays.",
+    image: Image9,
+  },
+   {
+    id: 86,
+    name: "Dell,Lenovo & Hp Type C Laptop Adapter Charger",
+    category: "Accessories",
+    price: 4550,
+    specs: "65W USB Type-C AC Adapter with Power Cable – Complete Charging Solution Power your compatible devices efficiently with the 65W USB Type-C AC Adapter with Power Cable. Designed to deliver reliable charging performance, this complete power solution is ideal for USB-C laptops, tablets, and other compatible devices.",
+    image: Image10,
+  },
+   {
+    id: 87,
+    name: "optical vertical mouse wireless",
+    category: "Accessories",
+    price: 4850,
+    specs: "optical vertical mouse wireless rechargeable. Experience a more comfortable way to work with the Wireless Rechargeable Optical Vertical Mouse, designed with an ergonomic vertical shape that promotes a natural hand and wrist position",
+    image: Image11,
+  },
+   {
+    id: 88,
+    name: "Logitech HD Webcam C270 - Black",
+    category: "Accessories",
+    price: 3850,
+    specs: "Logitech HD Webcam C270 Black.Upgrade your video calls and online meetings with the Logitech HD Webcam C270. Designed for clear, reliable video communication, this compact webcam is ideal for virtual meetings, online classes, video calls, and everyday streaming.",
+    image: Image12,
   },
 ];
 
