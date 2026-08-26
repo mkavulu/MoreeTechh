@@ -52,6 +52,7 @@ import Image9 from "../assets/Usb -c to HDMI cable 4k.jpg";
 import Image10 from "../assets/Dell Type C Laptop Charger.jpg";
 import Image11 from "../assets/optical vertical mouse wireless rechargeable.jpeg";
 import Image12 from "../assets/Logitech HD Webcam C270 - Black.jpg";
+import Image13 from "../assets/mouse pad.jpeg";
 import HPPrinterImage from "../assets/hp Printer.jpg";
 import epsonPrinterImage from "../assets/l3250-epson.jpg";
 import epsonPrinter1Image from "../assets/Canon PIXMA G3420.jpeg";
@@ -827,6 +828,14 @@ const sampleProducts = [
     price: 3850,
     specs: "Logitech HD Webcam C270 Black.Upgrade your video calls and online meetings with the Logitech HD Webcam C270. Designed for clear, reliable video communication, this compact webcam is ideal for virtual meetings, online classes, video calls, and everyday streaming.",
     image: Image12,
+  },
+  {
+    id: 89,
+    name: "Mouse pad medium ",
+    category: "Accessories",
+    price: 750,
+    specs: "Medium Mouse Pad – Smooth, Comfortable & Reliable. Improve your everyday computer experience with a Medium Mouse Pad, designed to provide a smooth and consistent surface for accurate mouse movement and better control.",
+    image: Image13,
   },
 ];
 
