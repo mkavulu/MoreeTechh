@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import InfoPage from './pages/InfoPage'; 
+import Cart from './pages/Cart';
 import Footer from './components/Footer'; 
 import ScrollToTop from './components/ScrollToTop';  
 import WhatsAppButton from './components/WhatsAppButton';
@@ -88,6 +89,7 @@ function App() {
           <main style={{ flexGrow: 1 }}>
             <Routes>
               <Route path="/" element={renderMainContent()} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </main>
           

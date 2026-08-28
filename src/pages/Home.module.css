@@ -13,20 +13,74 @@
   box-sizing: border-box;
 }
 
+/* ==========================================================================
+   HERO BANNER & PDF BUTTONS
+   ========================================================================== */
 .heroBanner {
-  background: linear-gradient(135deg, #002266 0%, #0044cc 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: var(--white);
-  padding: 60px 40px;
+  padding: 40px 20px;
+  text-align: center;
   border-radius: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .heroBanner h1 {
-  font-size: 32px;
+  font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
-/* Base Desktop Grid Layout Configuration */
+.heroBanner p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.pdfButtonContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.androidBtn,
+.appleBtn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+/* Distinct styling for the Android button */
+.androidBtn {
+  background-color: #10b981;
+  color: var(--white);
+}
+
+.androidBtn:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+/* Distinct styling for the Apple button */
+.appleBtn {
+  background-color: #3b82f6;
+  color: var(--white);
+}
+
+.appleBtn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   DESKTOP GRID & SIDEBAR LAYOUT
+   ========================================================================== */
 .mainLayout {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -52,6 +106,8 @@
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
@@ -115,7 +171,7 @@
 /* Fluid Wrapper Grid Component Tracker */
 .gridItemWrapper {
   cursor: pointer;
-  display: flex;         
+  display: flex;        
   flex-direction: column; 
   height: 100%;
   width: 100%;
@@ -123,21 +179,26 @@
 }
 
 /* ==========================================================================
-   MOBILE ECOSYSTEM RE-ALIGNMENT (Unified version)
+   MOBILE ECOSYSTEM RE-ALIGNMENT
    ========================================================================== */
 @media (max-width: 768px) {
   .homeContainer {
-    padding: 18px 10px; /* balanced between 15px and 20px */
+    padding: 18px 10px;
   }
 
   .heroBanner {
-    padding: 28px 18px; /* compromise between 25px and 30px */
+    padding: 28px 18px;
     margin-bottom: 22px;
     text-align: center;
   }
 
   .heroBanner h1 {
-    font-size: 23px; /* middle ground between 22px and 24px */
+    font-size: 1.6rem;
+  }
+
+  .heroBanner p {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
   }
 
   /* Collapse grid into single vertical stack */
@@ -146,7 +207,7 @@
     gap: 18px;
   }
 
-  /* Sidebar becomes swipeable category bar */
+  /*Sidebar becomes swipeable category bar */
   .sidebar {
     background: none;
     border: none;
@@ -155,12 +216,12 @@
   }
 
   .sidebar h3 {
-    display: none; /* hide "Categories" header on mobile */
+    display: none;
   }
 
   .sidebar ul {
     display: flex;
-    gap: 9px; /* compromise between 8px and 10px */
+    gap: 9px;
     overflow-x: auto;
     padding-bottom: 9px;
     margin: 0;
@@ -174,26 +235,26 @@
   }
 
   .sidebar button {
-    padding: 7px 15px; /* compromise between 6x14 and 8x16 */
+    padding: 7px 15px;
     font-size: 13px;
     background-color: var(--white);
     border: 1px solid var(--border-color);
-    border-radius: 20px; /* pill style */
+    border-radius: 20px;
     text-align: center;
     width: auto;
   }
 
-  /* Force exactly 2 columns side-by-side on mobile */
+  /* Force 2 columns side-by-side on tablet/mobile */
   .productGrid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 11px !important; /* compromise between 10px and 12px */
+    gap: 11px !important;
     width: 100% !important;
   }
 }
 
 @media (max-width: 420px) {
-  /* Safety fallback: single column for miniature devices */
+  /* Single column for narrow mobile screens */
   .productGrid {
     grid-template-columns: 1fr !important;
   }

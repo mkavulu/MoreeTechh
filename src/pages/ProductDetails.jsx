@@ -1,9 +1,10 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 import styles from "./ProductDetails.module.css";
 
-// 💡 Dependency imports from react-icons have been completely removed to stop Vite crashes
-
 const ProductDetails = ({ product, onBack }) => {
+  const { addToCart } = useCart();
+
   if (!product) return null;
 
   // Format currency to Kenyan Shillings cleanly
@@ -71,9 +72,13 @@ const ProductDetails = ({ product, onBack }) => {
 
           {/* Action Row */}
           <div className={styles.actionRow}>
-            <button className={styles.addToCartBtn}>Add to Cart</button>
+            <button 
+              className={styles.addToCartBtn} 
+              onClick={() => addToCart(product)}
+            >
+              Add to Cart
+            </button>
 
-            {/* FIX: Swapped react-icons for a lightweight, native img asset element */}
             <button className={styles.buyNowBtn} onClick={handleWhatsAppOrder}>
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 

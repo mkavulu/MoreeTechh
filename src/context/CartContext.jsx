@@ -1,42 +1,71 @@
-// src/context/CartContext.jsx
 import { createContext, useState, useContext } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
+  // Add item to cart or increment quantity if it already exists
   const addToCart = (product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === product.id);
       
       if (existingItem) {
-        return prevCart.map((item) =>
-          // Use || 1 as a safety fallback in case item.quantity doesn't exist yet
+        return prevItems.map((item) =>
           item.id === product.id 
             ? { ...item, quantity: (item.quantity || 1) + 1 } 
             : item
         );
       }
       
-      // Force set quantity to 1 explicitly for new items
-      return [...prevCart, { ...product, quantity: 1 }];
+      return [...prevItems, { ...product, quantity: 1 }];
     });
   };
 
+  // Remove a single product from cart
+  const removeFromCart = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  // Adjust item quantities (+ / -)
+  const updateQuantity = (id, quantity) => {
+    if (quantity <= 0) return;
+    setCartItems((prevItems) =>
+      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
+    );
+  };
+
+  // Clear all items from cart
+  const clearCart = () => setCartItems([]);
+
+  // Calculate total price of all items
+  const getCartTotal = () => {
+    return cartItems.reduce((total, item) => total + (item.price || 0) * (item.quantity || 1), 0);
+  };
+
+  // Calculate total item count for Navbar badge
   const getCartCount = () => {
-    return cart.reduce((total, item) => total + (item.quantity || 0), 0);
+    return cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, getCartCount }}>
+    <CartContext.Provider 
+      value={{ 
+        cartItems, 
+        addToCart, 
+        removeFromCart, 
+        updateQuantity, 
+        clearCart, 
+        getCartTotal, 
+        getCartCount 
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
 };
 
-// Custom hook helper
-// eslint-disable-next-line react-refresh/only-export-components
+// Custom Hook Helper
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
