@@ -273,3 +273,24 @@
     gap: 2rem;
   }
 }
+.whatsappBtn {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #25d366;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.whatsappBtn:hover {
+  background-color: #128c7e;
+}

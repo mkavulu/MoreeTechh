@@ -7,15 +7,19 @@
   --primary-color: #003399;
 }
 
-.homeContainer {
-  padding: 30px 4%;
-  width: 100%;
+/* Global Box-Sizing Fix */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-/* ==========================================================================
-   HERO BANNER & PDF BUTTONS
-   ========================================================================== */
+.homeContainer {
+  padding: 30px 4%;
+  width: 100%;
+}
+
+/* HERO BANNER & PDF BUTTONS */
 .heroBanner {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: var(--white);
@@ -78,9 +82,7 @@
   transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   DESKTOP GRID & SIDEBAR LAYOUT
-   ========================================================================== */
+/* DESKTOP GRID & SIDEBAR LAYOUT*/
 .mainLayout {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -175,12 +177,9 @@
   flex-direction: column; 
   height: 100%;
   width: 100%;
-  box-sizing: border-box;
 }
 
-/* ==========================================================================
-   MOBILE ECOSYSTEM RE-ALIGNMENT
-   ========================================================================== */
+/* MOBILE ECOSYSTEM RE-ALIGNMENT*/
 @media (max-width: 768px) {
   .homeContainer {
     padding: 18px 10px;
@@ -207,7 +206,7 @@
     gap: 18px;
   }
 
-  /*Sidebar becomes swipeable category bar */
+  /* Sidebar becomes swipeable category bar */
   .sidebar {
     background: none;
     border: none;
@@ -227,6 +226,13 @@
     margin: 0;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+    scrollbar-width: none;  /* Hide scrollbar Firefox */
+  }
+
+  /* Hide scrollbar Chrome/Safari */
+  .sidebar ul::-webkit-scrollbar {
+    display: none;
   }
 
   .sidebar li {
@@ -246,16 +252,14 @@
 
   /* Force 2 columns side-by-side on tablet/mobile */
   .productGrid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 11px !important;
-    width: 100% !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
   }
 }
 
 @media (max-width: 420px) {
   /* Single column for narrow mobile screens */
   .productGrid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 }

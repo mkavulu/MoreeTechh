@@ -1,9 +1,11 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 import styles from "./ProductDetails.module.css";
 
 const ProductDetails = ({ product, onBack }) => {
   const { addToCart } = useCart();
+  const { addToast } = useToast();
 
   if (!product) return null;
 
@@ -16,9 +18,15 @@ const ProductDetails = ({ product, onBack }) => {
     }).format(amount);
   };
 
+  // Add item to cart and trigger toast notification
+  const handleAddToCart = () => {
+    addToCart(product);
+    addToast(`${product.name} added to cart!`, "success");
+  };
+
   // WHATSAPP INTEGRATION ENGINE
   const handleWhatsAppOrder = () => {
-    const phoneNumber = "254724137327"; 
+    const phoneNumber = "254724137327";
 
     // Create a personalized, URL-safe order message string
     const message = `Hello, I'm interested in purchasing the *${product.name}* listed for *${formatKES(product.price)}*.\n\nCategory: ${product.category}\n\nPlease advise on availability and delivery options.`;
@@ -27,7 +35,7 @@ const ProductDetails = ({ product, onBack }) => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     // Safe cross-origin window dispatch
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -72,18 +80,18 @@ const ProductDetails = ({ product, onBack }) => {
 
           {/* Action Row */}
           <div className={styles.actionRow}>
-            <button 
-              className={styles.addToCartBtn} 
-              onClick={() => addToCart(product)}
+            <button
+              className={styles.addToCartBtn}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </button>
 
             <button className={styles.buyNowBtn} onClick={handleWhatsAppOrder}>
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-                alt="WhatsApp" 
-                style={{ width: '20px', height: '20px' }} 
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"
+                style={{ width: "20px", height: "20px" }}
               />
               Buy Now (WhatsApp)
             </button>

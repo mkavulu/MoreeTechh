@@ -1,15 +1,29 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useToast } from '../context/ToastContext';
 import styles from './Cart.module.css';
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity, clearCart, getCartTotal } = useCart();
+  const { addToast } = useToast();
   const navigate = useNavigate();
+
+  // Toast-enabled item removal
+  const handleRemoveItem = (id, name) => {
+    removeFromCart(id);
+    addToast(`${name || 'Item'} removed from cart`, 'info');
+  };
+
+  // Toast-enabled cart clearing
+  const handleClearCart = () => {
+    clearCart();
+    addToast('Cart cleared', 'info');
+  };
 
   // WhatsApp Checkout Integration
   const handleWhatsAppCheckout = () => {
-    const phoneNumber = "254724137327"; // Replace with your business number
+    const phoneNumber = "254724137327";
     
     let message = "Hello! I would like to place an order for the following items:\n\n";
     cartItems.forEach((item, index) => {
@@ -19,7 +33,7 @@ const Cart = () => {
     message += `\n*Total Amount:* KSh ${getCartTotal().toLocaleString()}`;
     
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   if (!cartItems || cartItems.length === 0) {
@@ -70,7 +84,7 @@ const Cart = () => {
 
               <button 
                 className={styles.removeBtn} 
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => handleRemoveItem(item.id, item.title || item.name)}
                 title="Remove item"
               >
                 &times;
@@ -78,7 +92,7 @@ const Cart = () => {
             </div>
           ))}
 
-          <button className={styles.clearBtn} onClick={clearCart}>
+          <button className={styles.clearBtn} onClick={handleClearCart}>
             Clear Cart
           </button>
         </div>
@@ -104,7 +118,13 @@ const Cart = () => {
             <span>KSh {getCartTotal().toLocaleString()}</span>
           </div>
 
-          <button className={styles.checkoutBtn} onClick={handleWhatsAppCheckout}>
+          {/* Standard Web Checkout Route Navigation */}
+          <button className={styles.checkoutBtn} onClick={() => navigate('/checkout')}>
+            Proceed to Checkout
+          </button>
+
+          {/* Direct WhatsApp Order Option */}
+          <button className={styles.whatsappBtn} onClick={handleWhatsAppCheckout}>
             Order via WhatsApp
           </button>
           

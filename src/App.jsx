@@ -5,10 +5,29 @@ import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import InfoPage from './pages/InfoPage'; 
 import Cart from './pages/Cart';
+import Checkout from './components/Checkout'; // Adjust to './pages/Checkout' if stored in pages
 import Footer from './components/Footer'; 
 import ScrollToTop from './components/ScrollToTop';  
 import WhatsAppButton from './components/WhatsAppButton';
-import { CartProvider } from './context/CartContext'; 
+import { CartProvider, useCart } from './context/CartContext'; 
+import { ToastProvider } from './context/ToastContext';
+
+// Helper component to connect CartContext data directly to the Checkout route
+const CheckoutRouteWrapper = () => {
+  const { cartItems, getCartTotal, clearCart } = useCart();
+
+  const handleOrderComplete = (orderData) => {
+    if (clearCart) clearCart();
+  };
+
+  return (
+    <Checkout 
+      cartItems={cartItems || []} 
+      totalAmount={getCartTotal ? getCartTotal() : 0} 
+      onOrderComplete={handleOrderComplete} 
+    />
+  );
+};
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -74,36 +93,39 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      <Router>
-        <ScrollToTop /> 
+    <ToastProvider>
+      <CartProvider>
+        <Router>
+          <ScrollToTop /> 
 
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
-          
-          <Navbar 
-            onResetHome={handleResetToHomeStorefront} 
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-          />
-          
-          <main style={{ flexGrow: 1 }}>
-            <Routes>
-              <Route path="/" element={renderMainContent()} />
-              <Route path="/cart" element={<Cart />} />
-            </Routes>
-          </main>
-          
-          <Footer 
-            onInfoClick={handleInfoSelect} 
-            onCategoryChange={handleCategoryChange} 
-          /> 
+          <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
+            
+            <Navbar 
+              onResetHome={handleResetToHomeStorefront} 
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+            />
+            
+            <main style={{ flexGrow: 1 }}>
+              <Routes>
+                <Route path="/" element={renderMainContent()} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<CheckoutRouteWrapper />} />
+              </Routes>
+            </main>
+            
+            <Footer 
+              onInfoClick={handleInfoSelect} 
+              onCategoryChange={handleCategoryChange} 
+            /> 
 
-          {/* Floating WhatsApp Button */}
-          <WhatsAppButton phoneNumber="254724137327" />
-          
-        </div>
-      </Router>
-    </CartProvider>
+            {/* Floating WhatsApp Button */}
+            <WhatsAppButton phoneNumber="254724137327" />
+            
+          </div>
+        </Router>
+      </CartProvider>
+    </ToastProvider>
   );
 }
 
