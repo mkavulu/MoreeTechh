@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./WhatsAppButton.module.css";
 
-const WhatsAppButton = ({ phoneNumber = "254700000000", message = "Hello, I would like to make an inquiry." }) => {
+const WhatsAppButton = ({ phoneNumber = "254724137327", message = "Hello, I would like to make an inquiry." }) => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

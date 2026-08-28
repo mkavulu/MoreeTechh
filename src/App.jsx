@@ -97,7 +97,7 @@ function App() {
           /> 
 
           {/* Floating WhatsApp Button */}
-          <WhatsAppButton phoneNumber="254700000000" />
+          <WhatsAppButton phoneNumber="254724137327" />
           
         </div>
       </Router>
